@@ -6,10 +6,11 @@
 //  Copyright © 2016 Alejandro Gomez Mutis. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Constants : NSObject
 
 + (NSURL *)getPokemonCountURL;
++ (NSURL *)getListOfAllPokemonURL:(NSInteger)count;
 
 @end

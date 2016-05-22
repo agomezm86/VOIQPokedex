@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^CountCompletionHandler)(NSInteger count, NSError *error);
+typedef void(^CompleteListCompletionHandler)(NSArray *listArray, NSError *error);
 
 @interface ServicesManager : NSObject
 
 - (void)getPokemonsCountWithCompletionHandler:(CountCompletionHandler)completionHandler;
-- (NSArray *)getListOfAllPokemons;
+- (void)getListOfAllPokemons:(NSInteger)pokemonCount withCompletionHandler:(CompleteListCompletionHandler)completionHandler;
 
 @end

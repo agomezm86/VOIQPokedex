@@ -34,9 +34,19 @@
     ServicesManager *servicesManager = [[ServicesManager alloc] init];
     [servicesManager getPokemonsCountWithCompletionHandler:^(NSInteger count, NSError *error) {
         if (error) {
-            [self showError:error];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self showError:error];
+            });
         } else {
-            NSLog(@"pokemon count %lu", count);
+            [servicesManager getListOfAllPokemons:count withCompletionHandler:^(NSArray *listArray, NSError *error) {
+                if (error) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self showError:error];
+                    });
+                } else {
+                    NSLog(@"%@", listArray);
+                }
+            }];
         }
     }];
 }
