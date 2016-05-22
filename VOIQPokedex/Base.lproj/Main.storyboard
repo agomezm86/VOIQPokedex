@@ -25,7 +25,7 @@
                                             <rect key="frame" x="15" y="0.0" width="550" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -74,7 +74,7 @@
                                             <constraint firstAttribute="height" constant="21" id="LzH-gI-Su1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2f-rN-ge2">
@@ -83,31 +83,31 @@
                                             <constraint firstAttribute="height" constant="21" id="Spv-66-Sg4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gu6-By-viX">
-                                        <rect key="frame" x="20" y="246" width="560" height="21"/>
+                                        <rect key="frame" x="20" y="234" width="560" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Kup-U3-x5b"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEe-pt-Evo">
-                                        <rect key="frame" x="20" y="275" width="560" height="21"/>
+                                        <rect key="frame" x="20" y="263" width="560" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Zoh-3m-Plv"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Gu6-By-viX" firstAttribute="top" secondItem="p2f-rN-ge2" secondAttribute="bottom" constant="20" id="5Cn-iI-eqj"/>
+                                    <constraint firstItem="Gu6-By-viX" firstAttribute="top" secondItem="p2f-rN-ge2" secondAttribute="bottom" constant="8" id="5Cn-iI-eqj"/>
                                     <constraint firstItem="dcp-LH-DOK" firstAttribute="centerX" secondItem="ibt-Tu-O2E" secondAttribute="centerX" id="6s0-A0-iwO"/>
                                     <constraint firstItem="p2f-rN-ge2" firstAttribute="leading" secondItem="ibt-Tu-O2E" secondAttribute="leading" constant="20" id="6wH-IN-EJl"/>
                                     <constraint firstAttribute="trailing" secondItem="cEe-pt-Evo" secondAttribute="trailing" constant="20" id="Ty7-Kd-qdn"/>
