@@ -8,11 +8,13 @@
 
 #import "ServicesManager.h"
 
+#import "AppDelegate.h"
 #import "Constants.h"
 
 @interface ServicesManager()
 
 @property (strong, nonatomic) NSURLSessionDataTask *dataTask;
+@property (strong, nonatomic) NSURLSessionDownloadTask *downloadTask;
 
 @end
 
@@ -86,7 +88,17 @@
             completionHandler(nil, error);
         } else {
             [self getGenderInfo:infoDictionary withCompletionHandler:^(NSDictionary *infoDictionaryNew, NSError *error) {
-                completionHandler(infoDictionaryNew, nil);
+                if (error != nil) {
+                    completionHandler(nil, error);
+                } else {
+                    [self downloadImageWithURL:[infoDictionaryNew objectForKey:@"image"] identification:[infoDictionaryNew objectForKey:@"id"] withCompletionHandler:^(NSError *error) {
+                        if (error != nil) {
+                            completionHandler(nil, error);
+                        } else {
+                            completionHandler(infoDictionaryNew, nil);
+                        }
+                    }];
+                }
             }];
         }
     }];
@@ -177,6 +189,24 @@
     }];
     
     [self.dataTask resume];
+}
+
+- (void)downloadImageWithURL:(NSString *)stringURL identification:(NSNumber *)identification withCompletionHandler:(DownloadImageCompletionHandler)completionHandler {
+    NSURL *url = [NSURL URLWithString:stringURL];
+    NSURLSession *session = [NSURLSession sharedSession];
+    self.downloadTask = [session downloadTaskWithURL:url completionHandler: ^(NSURL *location, NSURLResponse *response, NSError *error) {
+        if (error != nil) {
+            completionHandler(error);
+        } else {
+            NSData *data = [NSData dataWithContentsOfURL:location];
+            AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            NSURL *documentsDirectory = [delegate applicationDocumentsDirectory];
+            [data writeToURL:[documentsDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", identification]] atomically:true];
+            completionHandler(nil);
+        }
+    }];
+    
+    [self.downloadTask resume];
 }
 
 @end

@@ -11,6 +11,7 @@
 typedef void(^CountCompletionHandler)(NSInteger count, NSError *error);
 typedef void(^CompleteListCompletionHandler)(NSArray *listArray, NSError *error);
 typedef void(^DetailedInfoCompletionHandler)(NSDictionary *infoDictionary, NSError *error);
+typedef void(^DownloadImageCompletionHandler)(NSError *error);
 
 @interface ServicesManager : NSObject
 
