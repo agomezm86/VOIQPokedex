@@ -13,7 +13,6 @@
 		122316461CF13E8100BBB2F8 /* VOIQPokedex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 122316441CF13E8100BBB2F8 /* VOIQPokedex.xcdatamodeld */; };
 		122316481CF13E8100BBB2F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 122316471CF13E8100BBB2F8 /* Assets.xcassets */; };
 		1223164B1CF13E8100BBB2F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 122316491CF13E8100BBB2F8 /* LaunchScreen.storyboard */; };
-		122316561CF13E8100BBB2F8 /* VOIQPokedexTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316551CF13E8100BBB2F8 /* VOIQPokedexTests.m */; };
 		122316611CF13E8100BBB2F8 /* VOIQPokedexUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316601CF13E8100BBB2F8 /* VOIQPokedexUITests.m */; };
 		122316711CF13FEC00BBB2F8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316701CF13FEC00BBB2F8 /* HomeViewController.m */; };
 		122316751CF1407800BBB2F8 /* ServicesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316741CF1407800BBB2F8 /* ServicesManager.m */; };
@@ -26,6 +25,8 @@
 		1223169F1CF192F500BBB2F8 /* ActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1223169E1CF192F500BBB2F8 /* ActivityIndicatorView.m */; };
 		122316A21CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316A11CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.m */; };
 		122316A61CF204EF00BBB2F8 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316A51CF204EF00BBB2F8 /* CoreDataStack.m */; };
+		122316A91CF2246100BBB2F8 /* ServicesManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316A81CF2246100BBB2F8 /* ServicesManagerTests.m */; };
+		122316AB1CF22DC600BBB2F8 /* PokemonDataAccessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316AA1CF22DC600BBB2F8 /* PokemonDataAccessTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,6 @@
 		1223164A1CF13E8100BBB2F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1223164C1CF13E8100BBB2F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		122316511CF13E8100BBB2F8 /* VOIQPokedexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VOIQPokedexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		122316551CF13E8100BBB2F8 /* VOIQPokedexTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VOIQPokedexTests.m; sourceTree = "<group>"; };
 		122316571CF13E8100BBB2F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1223165C1CF13E8100BBB2F8 /* VOIQPokedexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VOIQPokedexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		122316601CF13E8100BBB2F8 /* VOIQPokedexUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VOIQPokedexUITests.m; sourceTree = "<group>"; };
@@ -84,6 +84,8 @@
 		122316A41CF204EF00BBB2F8 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataStack.h; path = CoreData/CoreDataStack.h; sourceTree = "<group>"; };
 		122316A51CF204EF00BBB2F8 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataStack.m; path = CoreData/CoreDataStack.m; sourceTree = "<group>"; };
 		122316A71CF221E400BBB2F8 /* Enumerations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enumerations.h; sourceTree = "<group>"; };
+		122316A81CF2246100BBB2F8 /* ServicesManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesManagerTests.m; sourceTree = "<group>"; };
+		122316AA1CF22DC600BBB2F8 /* PokemonDataAccessTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonDataAccessTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,8 +165,9 @@
 		122316541CF13E8100BBB2F8 /* VOIQPokedexTests */ = {
 			isa = PBXGroup;
 			children = (
-				122316551CF13E8100BBB2F8 /* VOIQPokedexTests.m */,
 				122316571CF13E8100BBB2F8 /* Info.plist */,
+				122316A81CF2246100BBB2F8 /* ServicesManagerTests.m */,
+				122316AA1CF22DC600BBB2F8 /* PokemonDataAccessTests.m */,
 			);
 			path = VOIQPokedexTests;
 			sourceTree = "<group>";
@@ -192,7 +195,6 @@
 		122316721CF1404D00BBB2F8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				122316A71CF221E400BBB2F8 /* Enumerations.h */,
 				122316731CF1407800BBB2F8 /* ServicesManager.h */,
 				122316741CF1407800BBB2F8 /* ServicesManager.m */,
 			);
@@ -206,6 +208,7 @@
 				1223169E1CF192F500BBB2F8 /* ActivityIndicatorView.m */,
 				122316771CF1456400BBB2F8 /* Constants.h */,
 				122316781CF1456400BBB2F8 /* Constants.m */,
+				122316A71CF221E400BBB2F8 /* Enumerations.h */,
 				122316A01CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.h */,
 				122316A11CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.m */,
 			);
@@ -381,7 +384,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				122316561CF13E8100BBB2F8 /* VOIQPokedexTests.m in Sources */,
+				122316A91CF2246100BBB2F8 /* ServicesManagerTests.m in Sources */,
+				122316AB1CF22DC600BBB2F8 /* PokemonDataAccessTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

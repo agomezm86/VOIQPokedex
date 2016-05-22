@@ -16,6 +16,7 @@
 
 NSString *const PokemonEntityName = @"Pokemon";
 NSString *const ManagedObjectContextSaveDidFailNotification = @"ManagedObjectContextSaveDidFailNotification";
+NSString *const PokemonNotFoundError = @"Not found.";
 
 + (NSURL *)applicationDocumentsDirectory {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];

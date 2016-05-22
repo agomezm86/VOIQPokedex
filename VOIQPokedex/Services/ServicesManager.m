@@ -41,32 +41,38 @@
                     NSArray *array = [dictionary objectForKey:@"results"];
                     completionHandler(array, nil);
                 } else if (serviceCase == PokemonBasicInfo) {
-                    NSMutableDictionary *infoDictionary = [[NSMutableDictionary alloc] init];
-                    [infoDictionary setObject:[dictionary objectForKey:@"id"] forKey:@"id"];
-                    
-                    NSDictionary *sprites = [dictionary objectForKey:@"sprites"];
-                    if ([sprites objectForKey:@"front_default"] != nil) {
-                        [infoDictionary setObject:[sprites objectForKey:@"front_default"] forKey:@"image"];
-                    } else if ([sprites objectForKey:@"front_female"] != nil) {
-                        [infoDictionary setObject:[sprites objectForKey:@"front_female"] forKey:@"image"];
-                    } else if ([sprites objectForKey:@"front_shiny"] != nil) {
-                        [infoDictionary setObject:[sprites objectForKey:@"front_shiny"] forKey:@"image"];
-                    } else if ([sprites objectForKey:@"front_shiny_female"] != nil) {
-                        [infoDictionary setObject:[sprites objectForKey:@"front_shiny_female"] forKey:@"image"];
-                    } else if ([sprites objectForKey:@"back_default"] != nil) {
-                        [infoDictionary setObject:[sprites objectForKey:@"back_default"] forKey:@"image"];
-                    } else if ([sprites objectForKey:@"back_female"] != nil) {
-                        [infoDictionary setObject:[sprites objectForKey:@"back_female"] forKey:@"image"];
-                    } else if ([sprites objectForKey:@"back_shiny"] != nil) {
-                        [infoDictionary setObject:[sprites objectForKey:@"back_shiny"] forKey:@"image"];
-                    } else if ([sprites objectForKey:@"back_shiny_female"] != nil) {
-                        [infoDictionary setObject:[sprites objectForKey:@"back_shiny_female"] forKey:@"image"];
+                    if ([dictionary objectForKey:@"detail"] != nil && [[dictionary objectForKey:@"detail"] isEqualToString:PokemonNotFoundError]) {
+                        NSDictionary *errorDictionary = [NSDictionary dictionaryWithObject:@"Pokemon not found" forKey:NSLocalizedDescriptionKey];
+                        NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:0 userInfo:errorDictionary];
+                        completionHandler(nil, error);
+                    } else {
+                        NSMutableDictionary *infoDictionary = [[NSMutableDictionary alloc] init];
+                        [infoDictionary setObject:[dictionary objectForKey:@"id"] forKey:@"id"];
+                        
+                        NSDictionary *sprites = [dictionary objectForKey:@"sprites"];
+                        if ([sprites objectForKey:@"front_default"] != nil) {
+                            [infoDictionary setObject:[sprites objectForKey:@"front_default"] forKey:@"image"];
+                        } else if ([sprites objectForKey:@"front_female"] != nil) {
+                            [infoDictionary setObject:[sprites objectForKey:@"front_female"] forKey:@"image"];
+                        } else if ([sprites objectForKey:@"front_shiny"] != nil) {
+                            [infoDictionary setObject:[sprites objectForKey:@"front_shiny"] forKey:@"image"];
+                        } else if ([sprites objectForKey:@"front_shiny_female"] != nil) {
+                            [infoDictionary setObject:[sprites objectForKey:@"front_shiny_female"] forKey:@"image"];
+                        } else if ([sprites objectForKey:@"back_default"] != nil) {
+                            [infoDictionary setObject:[sprites objectForKey:@"back_default"] forKey:@"image"];
+                        } else if ([sprites objectForKey:@"back_female"] != nil) {
+                            [infoDictionary setObject:[sprites objectForKey:@"back_female"] forKey:@"image"];
+                        } else if ([sprites objectForKey:@"back_shiny"] != nil) {
+                            [infoDictionary setObject:[sprites objectForKey:@"back_shiny"] forKey:@"image"];
+                        } else if ([sprites objectForKey:@"back_shiny_female"] != nil) {
+                            [infoDictionary setObject:[sprites objectForKey:@"back_shiny_female"] forKey:@"image"];
+                        }
+                        
+                        NSDictionary *speciesDictionary = [dictionary objectForKey:@"species"];
+                        NSString *speciesUrl = [speciesDictionary objectForKey:@"url"];
+                        [infoDictionary setObject:speciesUrl forKey:@"url"];
+                        completionHandler (infoDictionary, nil);
                     }
-                    
-                    NSDictionary *speciesDictionary = [dictionary objectForKey:@"species"];
-                    NSString *speciesUrl = [speciesDictionary objectForKey:@"url"];
-                    [infoDictionary setObject:speciesUrl forKey:@"url"];
-                    completionHandler (infoDictionary, nil);
                 } else if (serviceCase == PokemonGenderInfo) {
                     NSDictionary *infoDictionary = (NSDictionary *)parameters;
                     NSMutableDictionary *mutableDictionary = [[NSMutableDictionary alloc] initWithDictionary:infoDictionary];

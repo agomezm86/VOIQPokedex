@@ -12,6 +12,7 @@
 
 extern NSString *const PokemonEntityName;
 extern NSString *const ManagedObjectContextSaveDidFailNotification;
+extern NSString *const PokemonNotFoundError;
 
 + (NSURL *)applicationDocumentsDirectory;
 
