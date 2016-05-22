@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#import "ActivityIndicatorView.h"
 #import "CoreDataStack.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
@@ -16,6 +18,7 @@
 
 - (void)showError:(NSError *)error;
 - (void)fatalCoreDataError:(NSError *)error;
+- (ActivityIndicatorView *)activityIndicatorView;
 
 @end
 

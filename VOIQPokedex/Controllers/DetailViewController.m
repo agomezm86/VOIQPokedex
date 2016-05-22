@@ -15,6 +15,7 @@
 
 @interface DetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nationalIDLabel;
@@ -29,21 +30,15 @@
     [super viewDidLoad];
     
     self.title = [self.pokemon.name capitalizedString];
-    self.imageView.hidden = true;
-    self.nameLabel.hidden = true;
-    self.nationalIDLabel.hidden = true;
-    self.genderTitleLabel.hidden = true;
-    self.genderLabel.hidden = true;
+    self.contentView.hidden = true;
     
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     ActivityIndicatorView *activityIndicatorView = nil;
-    
-    NSURL *documentsDirectory = [Constants applicationDocumentsDirectory];
-    NSURL *imageURL = [documentsDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", self.pokemon.pokemon_id]];
+    NSURL *imageURL = [self imageURL];
     if ([[NSFileManager defaultManager] fileExistsAtPath:[imageURL path]]) {
-        [self reloadView];
+        [self reloadViewWithImageURL:imageURL];
     } else {
-        CGRect bounds = self.view.bounds;
-        activityIndicatorView = [[ActivityIndicatorView alloc] initWithFrame:CGRectMake((bounds.size.width / 2) - 75, (bounds.size.height / 2) - 75, 150, 150)];
+        activityIndicatorView = [delegate activityIndicatorView];
         [self.view addSubview:activityIndicatorView];
     }
     
@@ -55,7 +50,6 @@
                     [activityIndicatorView removeFromSuperview];
                 }
                 
-                AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 [delegate showError:error];
             });
         } else {
@@ -67,22 +61,15 @@
                     if (activityIndicatorView != nil) {
                         [activityIndicatorView removeFromSuperview];
                     }
-                    [self reloadView];
+                    [self reloadViewWithImageURL:[self imageURL]];
                 });
             }];
         }
     }];
 }
 
-- (void)reloadView {
-    self.imageView.hidden = false;
-    self.nameLabel.hidden = false;
-    self.nationalIDLabel.hidden = false;
-    self.genderTitleLabel.hidden = false;
-    self.genderLabel.hidden = false;
-    
-    NSURL *documentsDirectory = [Constants applicationDocumentsDirectory];
-    NSURL *imageURL = [documentsDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", self.pokemon.pokemon_id]];
+- (void)reloadViewWithImageURL:(NSURL *)imageURL {
+    self.contentView.hidden = false;
     self.imageView.image = [UIImage imageWithContentsOfFile:[imageURL path]];
     
     NSMutableAttributedString *nameString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@", NSLocalizedString(@"NAME", nil), [self.pokemon.name capitalizedString]]];
@@ -100,14 +87,26 @@
     if (femaleGenderRate == -1) {
         self.genderLabel.text = NSLocalizedString(@"NO_GENDER", nil);
     } else {
-        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-        numberFormatter.numberStyle = NSNumberFormatterPercentStyle;
-        numberFormatter.minimumFractionDigits = 0;
-        numberFormatter.maximumFractionDigits = 1;
-        
-        self.genderLabel.text = [NSString stringWithFormat:@"%@ / %@", [numberFormatter stringFromNumber:[NSNumber numberWithDouble:maleGenderRate]], [numberFormatter stringFromNumber:[NSNumber numberWithDouble:femaleGenderRate]]];
+        NSNumberFormatter *numberFormatter = [self numberFormatter];
+        NSString *maleGenderRateString = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:maleGenderRate]];
+        NSString *femaleGenderRateString = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:femaleGenderRate]];
+        self.genderLabel.text = [NSString stringWithFormat:@"%@ / %@", maleGenderRateString, femaleGenderRateString];
 
     }
+}
+
+- (NSURL *)imageURL {
+    NSURL *documentsDirectory = [Constants applicationDocumentsDirectory];
+    NSURL *imageURL = [documentsDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", self.pokemon.pokemon_id]];
+    return imageURL;
+}
+
+- (NSNumberFormatter *)numberFormatter {
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    numberFormatter.numberStyle = NSNumberFormatterPercentStyle;
+    numberFormatter.minimumFractionDigits = 0;
+    numberFormatter.maximumFractionDigits = 1;
+    return numberFormatter;
 }
 
 @end

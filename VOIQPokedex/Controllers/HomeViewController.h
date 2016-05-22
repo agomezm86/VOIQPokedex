@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UITableViewController<NSFetchedResultsControllerDelegate>
+@interface HomeViewController : UITableViewController
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 
-#import "ActivityIndicatorView.h"
 #import "HomeViewController.h"
 #import "PokemonDataAccess.h"
 #import "ServicesManager.h"
