@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		1223163A1CF13E8100BBB2F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316391CF13E8100BBB2F8 /* main.m */; };
 		1223163D1CF13E8100BBB2F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1223163C1CF13E8100BBB2F8 /* AppDelegate.m */; };
-		122316401CF13E8100BBB2F8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1223163F1CF13E8100BBB2F8 /* ViewController.m */; };
 		122316431CF13E8100BBB2F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 122316411CF13E8100BBB2F8 /* Main.storyboard */; };
 		122316461CF13E8100BBB2F8 /* VOIQPokedex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 122316441CF13E8100BBB2F8 /* VOIQPokedex.xcdatamodeld */; };
 		122316481CF13E8100BBB2F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 122316471CF13E8100BBB2F8 /* Assets.xcassets */; };
 		1223164B1CF13E8100BBB2F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 122316491CF13E8100BBB2F8 /* LaunchScreen.storyboard */; };
 		122316561CF13E8100BBB2F8 /* VOIQPokedexTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316551CF13E8100BBB2F8 /* VOIQPokedexTests.m */; };
 		122316611CF13E8100BBB2F8 /* VOIQPokedexUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316601CF13E8100BBB2F8 /* VOIQPokedexUITests.m */; };
+		122316711CF13FEC00BBB2F8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316701CF13FEC00BBB2F8 /* HomeViewController.m */; };
+		122316751CF1407800BBB2F8 /* ServicesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316741CF1407800BBB2F8 /* ServicesManager.m */; };
+		122316791CF1456400BBB2F8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316781CF1456400BBB2F8 /* Constants.m */; };
+		1223167F1CF14BD000BBB2F8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1223167E1CF14BD000BBB2F8 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +43,6 @@
 		122316391CF13E8100BBB2F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1223163B1CF13E8100BBB2F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1223163C1CF13E8100BBB2F8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1223163E1CF13E8100BBB2F8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1223163F1CF13E8100BBB2F8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		122316421CF13E8100BBB2F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		122316451CF13E8100BBB2F8 /* VOIQPokedex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VOIQPokedex.xcdatamodel; sourceTree = "<group>"; };
 		122316471CF13E8100BBB2F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +54,13 @@
 		1223165C1CF13E8100BBB2F8 /* VOIQPokedexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VOIQPokedexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		122316601CF13E8100BBB2F8 /* VOIQPokedexUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VOIQPokedexUITests.m; sourceTree = "<group>"; };
 		122316621CF13E8100BBB2F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1223166F1CF13FEC00BBB2F8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Controllers/HomeViewController.h; sourceTree = "<group>"; };
+		122316701CF13FEC00BBB2F8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Controllers/HomeViewController.m; sourceTree = "<group>"; };
+		122316731CF1407800BBB2F8 /* ServicesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServicesManager.h; path = Services/ServicesManager.h; sourceTree = "<group>"; };
+		122316741CF1407800BBB2F8 /* ServicesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServicesManager.m; path = Services/ServicesManager.m; sourceTree = "<group>"; };
+		122316771CF1456400BBB2F8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Utils/Constants.h; sourceTree = "<group>"; };
+		122316781CF1456400BBB2F8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Utils/Constants.m; sourceTree = "<group>"; };
+		1223167E1CF14BD000BBB2F8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,16 +111,18 @@
 		122316371CF13E8100BBB2F8 /* VOIQPokedex */ = {
 			isa = PBXGroup;
 			children = (
+				1223166E1CF13FC400BBB2F8 /* Controllers */,
+				122316721CF1404D00BBB2F8 /* Services */,
+				122316761CF1454300BBB2F8 /* Utils */,
 				1223163B1CF13E8100BBB2F8 /* AppDelegate.h */,
 				1223163C1CF13E8100BBB2F8 /* AppDelegate.m */,
-				1223163E1CF13E8100BBB2F8 /* ViewController.h */,
-				1223163F1CF13E8100BBB2F8 /* ViewController.m */,
 				122316411CF13E8100BBB2F8 /* Main.storyboard */,
 				122316471CF13E8100BBB2F8 /* Assets.xcassets */,
 				122316491CF13E8100BBB2F8 /* LaunchScreen.storyboard */,
 				1223164C1CF13E8100BBB2F8 /* Info.plist */,
 				122316441CF13E8100BBB2F8 /* VOIQPokedex.xcdatamodeld */,
 				122316381CF13E8100BBB2F8 /* Supporting Files */,
+				1223167E1CF14BD000BBB2F8 /* Localizable.strings */,
 			);
 			path = VOIQPokedex;
 			sourceTree = "<group>";
@@ -141,6 +151,33 @@
 				122316621CF13E8100BBB2F8 /* Info.plist */,
 			);
 			path = VOIQPokedexUITests;
+			sourceTree = "<group>";
+		};
+		1223166E1CF13FC400BBB2F8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1223166F1CF13FEC00BBB2F8 /* HomeViewController.h */,
+				122316701CF13FEC00BBB2F8 /* HomeViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		122316721CF1404D00BBB2F8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				122316731CF1407800BBB2F8 /* ServicesManager.h */,
+				122316741CF1407800BBB2F8 /* ServicesManager.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		122316761CF1454300BBB2F8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				122316771CF1456400BBB2F8 /* Constants.h */,
+				122316781CF1456400BBB2F8 /* Constants.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1223164B1CF13E8100BBB2F8 /* LaunchScreen.storyboard in Resources */,
+				1223167F1CF14BD000BBB2F8 /* Localizable.strings in Resources */,
 				122316481CF13E8100BBB2F8 /* Assets.xcassets in Resources */,
 				122316431CF13E8100BBB2F8 /* Main.storyboard in Resources */,
 			);
@@ -276,10 +314,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				122316401CF13E8100BBB2F8 /* ViewController.m in Sources */,
 				1223163D1CF13E8100BBB2F8 /* AppDelegate.m in Sources */,
+				122316751CF1407800BBB2F8 /* ServicesManager.m in Sources */,
 				1223163A1CF13E8100BBB2F8 /* main.m in Sources */,
 				122316461CF13E8100BBB2F8 /* VOIQPokedex.xcdatamodeld in Sources */,
+				122316711CF13FEC00BBB2F8 /* HomeViewController.m in Sources */,
+				122316791CF1456400BBB2F8 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
