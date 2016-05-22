@@ -2,7 +2,7 @@
 //  ActivityIndicatorView.h
 //  VOIQPokedex
 //
-//  Created by Field Service on 5/22/16.
+//  Created by Alejandro Gomez Mutis on 5/22/16.
 //  Copyright © 2016 Alejandro Gomez Mutis. All rights reserved.
 //
 

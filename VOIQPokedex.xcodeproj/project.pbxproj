@@ -166,8 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				122316571CF13E8100BBB2F8 /* Info.plist */,
-				122316A81CF2246100BBB2F8 /* ServicesManagerTests.m */,
 				122316AA1CF22DC600BBB2F8 /* PokemonDataAccessTests.m */,
+				122316A81CF2246100BBB2F8 /* ServicesManagerTests.m */,
 			);
 			path = VOIQPokedexTests;
 			sourceTree = "<group>";
@@ -611,6 +611,7 @@
 				122316671CF13E8100BBB2F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		122316681CF13E8100BBB2F8 /* Build configuration list for PBXNativeTarget "VOIQPokedexTests" */ = {
 			isa = XCConfigurationList;
@@ -619,6 +620,7 @@
 				1223166A1CF13E8100BBB2F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1223166B1CF13E8100BBB2F8 /* Build configuration list for PBXNativeTarget "VOIQPokedexUITests" */ = {
 			isa = XCConfigurationList;
@@ -627,6 +629,7 @@
 				1223166D1CF13E8100BBB2F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

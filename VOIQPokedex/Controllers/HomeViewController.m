@@ -2,7 +2,7 @@
 //  HomeViewController.m
 //  VOIQPokedex
 //
-//  Created by Field Service on 5/21/16.
+//  Created by Alejandro Gomez Mutis on 5/21/16.
 //  Copyright © 2016 Alejandro Gomez Mutis. All rights reserved.
 //
 
@@ -16,16 +16,31 @@
 
 @interface HomeViewController ()
 
+/**
+ @property core data controller for fetched results
+ */
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
+/**
+ @property limit for fetched registers
+ */
 @property (assign, nonatomic) NSInteger fetchLimit;
 
 @end
 
 @implementation HomeViewController
 
+/**
+ Controller is loaded
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    /**
+     Handler for the infinite scroll
+     everytime the bottom scroll is reached the event inside the block
+     will be invoked
+     */
     __weak typeof(self) weakSelf = self;
     self.tableView.infiniteScrollIndicatorStyle = UIActivityIndicatorViewStyleGray;
     [self.tableView addInfiniteScrollWithHandler:^(UITableView *tableView) {
@@ -35,6 +50,9 @@
     }];
 }
 
+/**
+ Perform the fetch in order to get the list of pokemons
+ */
 - (void)performFetch {
     if (self.fetchLimit == 0) {
         self.fetchLimit = 20;
@@ -54,6 +72,9 @@
     [self.tableView reloadData];
 }
 
+/**
+ Invoked when a segue is performed
+ */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue
                  sender:(id)sender {
     if ([segue.identifier isEqualToString:@"goToDetailView"]) {
@@ -65,16 +86,25 @@
     }
 }
 
+/**
+ Number of sections in the controller's table view
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.fetchedResultsController.sections.count;
 }
 
+/**
+ Number of rows per section in the controller's table view
+ */
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController.sections objectAtIndex:section];
     return sectionInfo.numberOfObjects;
 }
 
+/**
+ Contents of each cell in the controller's table view
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TableCell"];

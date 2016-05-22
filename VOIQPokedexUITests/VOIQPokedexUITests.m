@@ -2,7 +2,7 @@
 //  VOIQPokedexUITests.m
 //  VOIQPokedexUITests
 //
-//  Created by Field Service on 5/21/16.
+//  Created by Alejandro Gomez Mutis on 5/21/16.
 //  Copyright © 2016 Alejandro Gomez Mutis. All rights reserved.
 //
 
@@ -29,9 +29,15 @@
     [super tearDown];
 }
 
+/**
+ UITest for verify some tap rows and go back actions
+ in portrait orientation
+ */
 - (void)testDownloadAndShowPokemonList {
     [XCUIDevice sharedDevice].orientation = UIDeviceOrientationPortrait;
     
+    //This line is used for waiting web services response
+    //in case the view is empty
     sleep(10);
     XCUIApplication *app = [[XCUIApplication alloc] init];
     [app.tables.staticTexts[@"Abomasnow"] tap];
@@ -44,6 +50,10 @@
     [app.navigationBars[@"Abra"].buttons[@"Pokemon List"] tap];
 }
 
+/**
+ UITest for verify some tap rows and go back actions
+ in landscape orientation
+ */
 - (void)testDownloadAndShowPokemonListLandscape {
     [XCUIDevice sharedDevice].orientation = UIDeviceOrientationLandscapeRight;
     

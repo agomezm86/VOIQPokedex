@@ -2,7 +2,7 @@
 //  Pokemon+CoreDataProperties.m
 //  VOIQPokedex
 //
-//  Created by Field Service on 5/22/16.
+//  Created by Alejandro Gomez Mutis on 5/22/16.
 //  Copyright © 2016 Alejandro Gomez Mutis. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu

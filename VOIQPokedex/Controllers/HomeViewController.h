@@ -2,7 +2,7 @@
 //  HomeViewController.h
 //  VOIQPokedex
 //
-//  Created by Field Service on 5/21/16.
+//  Created by Alejandro Gomez Mutis on 5/21/16.
 //  Copyright © 2016 Alejandro Gomez Mutis. All rights reserved.
 //
 
@@ -10,8 +10,14 @@
 
 @interface HomeViewController : UITableViewController
 
+/**
+ @property core data managed context
+ */
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+/**
+ Public methods
+ */
 - (void)performFetch;
 
 @end

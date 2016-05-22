@@ -2,7 +2,7 @@
 //  DetailViewController.m
 //  VOIQPokedex
 //
-//  Created by Field Service on 5/22/16.
+//  Created by Alejandro Gomez Mutis on 5/22/16.
 //  Copyright © 2016 Alejandro Gomez Mutis. All rights reserved.
 //
 
@@ -15,6 +15,11 @@
 
 @interface DetailViewController ()
 
+/**
+ @property outlets for the detail view
+ the main content view, the view for the image,
+ the labels for the name, national id and gender rate
+ */
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -26,6 +31,9 @@
 
 @implementation DetailViewController
 
+/**
+ Controller is loaded
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -34,14 +42,21 @@
     
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     ActivityIndicatorView *activityIndicatorView = nil;
+    
+    // If image associated with selected pokemon exists
+    // it means that the app gets the detailed information
+    // and can show the info in the view
     NSURL *imageURL = [self imageURL];
     if ([[NSFileManager defaultManager] fileExistsAtPath:[imageURL path]]) {
         [self reloadViewWithImageURL:imageURL];
     } else {
+        // If there isn't detailed info the activity view will show
         activityIndicatorView = [delegate activityIndicatorView];
         [self.view addSubview:activityIndicatorView];
     }
     
+    // The service manager will invoke the get detailed info related services
+    // ir order to get updated info
     ServicesManager *servicesManager = [[ServicesManager alloc] init];
     [servicesManager getPokemonDetailedInfo:self.pokemon.name withCompletionHandler:^(NSDictionary *infoDictionary, NSError *error) {
         if (error != nil) {
@@ -53,6 +68,7 @@
                 [delegate showError:error];
             });
         } else {
+            // Update the detailed info in database
             PokemonDataAccess *pokemonDataAccess = [PokemonDataAccess sharedInstance];
             pokemonDataAccess.managedObjectContext = self.managedObjectContext;
             [pokemonDataAccess updatePokemonInfoForName:self.pokemon.name withInfo:infoDictionary andCompletionHandler:^() {
@@ -68,6 +84,7 @@
     }];
 }
 
+// Load the info in the view
 - (void)reloadViewWithImageURL:(NSURL *)imageURL {
     self.contentView.hidden = false;
     self.imageView.image = [UIImage imageWithContentsOfFile:[imageURL path]];
@@ -82,6 +99,7 @@
     
     self.genderTitleLabel.text = NSLocalizedString(@"MALE_FEMALE_TITLE", nil);
     
+    // male and female gende rates in percentage
     double femaleGenderRate = self.pokemon.gender_rate.doubleValue;
     double maleGenderRate = 1 - femaleGenderRate;
     if (femaleGenderRate == -1) {
@@ -95,12 +113,18 @@
     }
 }
 
+/**
+ Get the local url of the pokemon image
+ */
 - (NSURL *)imageURL {
     NSURL *documentsDirectory = [Constants applicationDocumentsDirectory];
     NSURL *imageURL = [documentsDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", self.pokemon.pokemon_id]];
     return imageURL;
 }
 
+/**
+ Returns the formatter for the gender percentage
+ */
 - (NSNumberFormatter *)numberFormatter {
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     numberFormatter.numberStyle = NSNumberFormatterPercentStyle;

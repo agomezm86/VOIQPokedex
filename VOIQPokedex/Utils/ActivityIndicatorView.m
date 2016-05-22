@@ -2,7 +2,7 @@
 //  ActivityIndicatorView.m
 //  VOIQPokedex
 //
-//  Created by Field Service on 5/22/16.
+//  Created by Alejandro Gomez Mutis on 5/22/16.
 //  Copyright © 2016 Alejandro Gomez Mutis. All rights reserved.
 //
 
@@ -10,6 +10,11 @@
 
 @implementation ActivityIndicatorView
 
+/**
+ Init constructor of the class
+ @param frame the frame of the view
+ @returns instance of the class
+ */
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self createActivityIndicatorView];
@@ -17,6 +22,10 @@
     return self;
 }
 
+/**
+ Create the objects for the view
+ and add it to its superview
+ */
 - (void)createActivityIndicatorView {
     UIView *loadingView = [[UIView alloc] initWithFrame:self.bounds];
     loadingView.tag = 1;
