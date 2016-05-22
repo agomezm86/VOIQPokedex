@@ -85,3 +85,9 @@ Currently the class has two UITests fully test
 - The infinite scroll pagination for the app
 
 ![animated_gif](https://cloud.githubusercontent.com/assets/6619034/15456713/968f7cee-203e-11e6-8a9a-df90b35f41c4.gif)
+
+
+## About
+
+- Application developed by: Alejandro Gómez Mutis
+- Version 1.0 -> May 22th, 2016
