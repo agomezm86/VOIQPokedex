@@ -27,9 +27,11 @@
     
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     if ([navigationController isKindOfClass:[UINavigationController class]]) {
-        self.homeViewController = (HomeViewController *)navigationController.topViewController;
-        self.homeViewController.managedObjectContext = self.coreDataStack.managedObjectContext;
-        [self.homeViewController performFetch];
+        if ([navigationController.topViewController isKindOfClass:[HomeViewController class]]) {
+            self.homeViewController = (HomeViewController *)navigationController.topViewController;
+            self.homeViewController.managedObjectContext = self.coreDataStack.managedObjectContext;
+            [self.homeViewController performFetch];
+        }
     }
     
     return YES;
@@ -40,16 +42,15 @@
     pokemonDataAccess.managedObjectContext = self.coreDataStack.managedObjectContext;
     NSInteger pokemonCount = [pokemonDataAccess loadPokemonCount];
     
-    CGRect bounds = self.homeViewController.view.bounds;
     ActivityIndicatorView *activityIndicatorView = nil;
     if (pokemonCount == 0) {
         self.homeViewController.view.userInteractionEnabled = false;
-        activityIndicatorView = [[ActivityIndicatorView alloc] initWithFrame:CGRectMake((bounds.size.width / 2) - 75, (bounds.size.height / 2) - 75, 150, 150)];
+        activityIndicatorView = [self activityIndicatorView];
         [self.homeViewController.view addSubview:activityIndicatorView];
     }
     
     ServicesManager *servicesManager = [[ServicesManager alloc] init];
-    [servicesManager getPokemonsCountWithCompletionHandler:^(NSInteger count, NSError *error) {
+    [servicesManager getListOfAllPokemonsWithCompletionHandler:^(NSArray *listArray, NSError *error) {
         if (error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (activityIndicatorView != nil) {
@@ -59,26 +60,14 @@
                 [self showError:error];
             });
         } else {
-            [servicesManager getListOfAllPokemons:count withCompletionHandler:^(NSArray *listArray, NSError *error) {
-                if (error) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        if (activityIndicatorView != nil) {
-                            self.homeViewController.view.userInteractionEnabled = true;
-                            [activityIndicatorView removeFromSuperview];
-                        }
-                        [self showError:error];
-                    });
-                } else {
-                    [pokemonDataAccess saveListOfPokemon:listArray withCompletionHandler:^() {
-                        dispatch_async(dispatch_get_main_queue(), ^() {
-                            if (activityIndicatorView != nil) {
-                                self.homeViewController.view.userInteractionEnabled = true;
-                                [activityIndicatorView removeFromSuperview];
-                            }
-                            [self.homeViewController performFetch];
-                        });
-                    }];
-                }
+            [pokemonDataAccess saveListOfPokemon:listArray withCompletionHandler:^() {
+                dispatch_async(dispatch_get_main_queue(), ^() {
+                    if (activityIndicatorView != nil) {
+                        self.homeViewController.view.userInteractionEnabled = true;
+                        [activityIndicatorView removeFromSuperview];
+                    }
+                    [self.homeViewController performFetch];
+                });
             }];
         }
     }];
@@ -112,6 +101,13 @@
             [self.homeViewController presentViewController:alertController animated:true completion:nil];
         }
     }];
+}
+
+- (ActivityIndicatorView *)activityIndicatorView {
+    CGRect bounds = self.homeViewController.view.bounds;
+    ActivityIndicatorView *activityIndicatorView = [[ActivityIndicatorView alloc] initWithFrame:CGRectMake((bounds.size.width / 2) - 75, (bounds.size.height / 2) - 75, 150, 150)];
+    
+    return activityIndicatorView;
 }
 
 @end

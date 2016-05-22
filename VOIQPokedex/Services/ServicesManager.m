@@ -48,35 +48,41 @@
     [self.dataTask resume];
 }
 
-- (void)getListOfAllPokemons:(NSInteger)pokemonCount withCompletionHandler:(CompleteListCompletionHandler)completionHandler {
-    if (self.dataTask != nil) {
-        [self.dataTask cancel];
-    }
-    
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
-    
-    NSURL *url = [Constants getListOfAllPokemonURL:pokemonCount];
-    NSURLSession *session = [NSURLSession sharedSession];
-    self.dataTask = [session dataTaskWithURL:url completionHandler:^(NSData *data,    NSURLResponse *response, NSError *error) {
+- (void)getListOfAllPokemonsWithCompletionHandler:(CompleteListCompletionHandler)completionHandler {
+    [self getPokemonsCountWithCompletionHandler:^(NSInteger count, NSError *error) {
         if (error != nil) {
             completionHandler(nil, error);
         } else {
-            NSError *parsingError;
-            NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parsingError];
-            if (parsingError) {
-                completionHandler(nil, parsingError);
-            } else {
-                NSArray *array = [dictionary objectForKey:@"results"];
-                completionHandler(array, nil);
+            if (self.dataTask != nil) {
+                [self.dataTask cancel];
             }
+            
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
+            
+            NSURL *url = [Constants getListOfAllPokemonURL:count];
+            NSURLSession *session = [NSURLSession sharedSession];
+            self.dataTask = [session dataTaskWithURL:url completionHandler:^(NSData *data,    NSURLResponse *response, NSError *error) {
+                if (error != nil) {
+                    completionHandler(nil, error);
+                } else {
+                    NSError *parsingError;
+                    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parsingError];
+                    if (parsingError) {
+                        completionHandler(nil, parsingError);
+                    } else {
+                        NSArray *array = [dictionary objectForKey:@"results"];
+                        completionHandler(array, nil);
+                    }
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
+                });
+            }];
+            
+            [self.dataTask resume];
         }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
-        });
     }];
-    
-    [self.dataTask resume];
 }
 
 - (void)getPokemonInfo:(NSString *)name withCompletionHandler:(DetailedInfoCompletionHandler)completionHandler {

@@ -15,8 +15,7 @@ typedef void(^DownloadImageCompletionHandler)(NSError *error);
 
 @interface ServicesManager : NSObject
 
-- (void)getPokemonsCountWithCompletionHandler:(CountCompletionHandler)completionHandler;
-- (void)getListOfAllPokemons:(NSInteger)pokemonCount withCompletionHandler:(CompleteListCompletionHandler)completionHandler;
+- (void)getListOfAllPokemonsWithCompletionHandler:(CompleteListCompletionHandler)completionHandler;
 - (void)getPokemonInfo:(NSString *)name withCompletionHandler:(DetailedInfoCompletionHandler)completionHandler;
 
 @end

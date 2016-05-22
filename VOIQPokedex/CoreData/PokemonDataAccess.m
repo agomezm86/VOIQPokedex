@@ -71,13 +71,13 @@
     fetchRequest.entity = entity;
     
     NSError *error;
-    NSArray *array = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    NSInteger count = [self.managedObjectContext countForFetchRequest:fetchRequest error:&error];
     if (error) {
         AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [delegate fatalCoreDataError:error];
     }
     
-    return array.count;
+    return count;
 }
 
 - (void)updatePokemonInfoForName:(NSString *)name withInfo:(NSDictionary *)infoDictionary withCompletionHandler:(SaveListCompletionHandler)completionHandler {

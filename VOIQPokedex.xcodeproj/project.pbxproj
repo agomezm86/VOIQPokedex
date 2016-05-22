@@ -213,14 +213,14 @@
 		122316801CF154B700BBB2F8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				122316A41CF204EF00BBB2F8 /* CoreDataStack.h */,
+				122316A51CF204EF00BBB2F8 /* CoreDataStack.m */,
 				122316991CF1890E00BBB2F8 /* Pokemon.h */,
 				1223169A1CF1890E00BBB2F8 /* Pokemon.m */,
 				122316971CF1890E00BBB2F8 /* Pokemon+CoreDataProperties.h */,
 				122316981CF1890E00BBB2F8 /* Pokemon+CoreDataProperties.m */,
 				122316841CF155CF00BBB2F8 /* PokemonDataAccess.h */,
 				122316851CF155CF00BBB2F8 /* PokemonDataAccess.m */,
-				122316A41CF204EF00BBB2F8 /* CoreDataStack.h */,
-				122316A51CF204EF00BBB2F8 /* CoreDataStack.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
