@@ -8,6 +8,8 @@
 
 #import <CoreData/CoreData.h>
 
+#import "Pokemon.h"
+
 typedef void(^SaveListCompletionHandler)();
 
 @interface PokemonDataAccess : NSObject
@@ -17,5 +19,6 @@ typedef void(^SaveListCompletionHandler)();
 - (void)saveListOfPokemon:(NSArray *)listArray withCompletionHandler:(SaveListCompletionHandler)completionHandler;
 - (NSFetchedResultsController *)fetchedResultsController;
 - (void)updatePokemonInfoForName:(NSString *)name withInfo:(NSDictionary *)infoDictionary withCompletionHandler:(SaveListCompletionHandler)completionHandler;
+- (Pokemon *)loadPokemonWithName:(NSString *)name;
 
 @end

@@ -9,7 +9,6 @@
 #import "PokemonDataAccess.h"
 
 #import "AppDelegate.h"
-#import "Pokemon.h"
 
 #define POKEMON_ENTITY_NAME @"Pokemon"
 

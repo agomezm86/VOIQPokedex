@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Pokemon List-->
@@ -57,8 +58,63 @@
                     <view key="view" contentMode="scaleToFill" id="8zX-HK-q8F">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmB-06-whU">
+                                <rect key="frame" x="20" y="240" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="LzH-gI-Su1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2f-rN-ge2">
+                                <rect key="frame" x="20" y="269" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Spv-66-Sg4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gu6-By-viX">
+                                <rect key="frame" x="20" y="298" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Kup-U3-x5b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dcp-LH-DOK">
+                                <rect key="frame" x="225" y="72" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="0JA-IZ-cJp"/>
+                                    <constraint firstAttribute="height" constant="150" id="z8T-hZ-xWE"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tmB-06-whU" firstAttribute="leading" secondItem="8zX-HK-q8F" secondAttribute="leadingMargin" id="53S-hh-TlI"/>
+                            <constraint firstItem="dcp-LH-DOK" firstAttribute="centerX" secondItem="8zX-HK-q8F" secondAttribute="centerX" id="AUt-cI-F5g"/>
+                            <constraint firstItem="Gu6-By-viX" firstAttribute="leading" secondItem="8zX-HK-q8F" secondAttribute="leadingMargin" id="HP3-ON-SUU"/>
+                            <constraint firstItem="tmB-06-whU" firstAttribute="top" secondItem="dcp-LH-DOK" secondAttribute="bottom" constant="18" id="JYW-SD-YUr"/>
+                            <constraint firstItem="p2f-rN-ge2" firstAttribute="trailing" secondItem="8zX-HK-q8F" secondAttribute="trailingMargin" id="QI1-Aj-8dh"/>
+                            <constraint firstItem="p2f-rN-ge2" firstAttribute="leading" secondItem="8zX-HK-q8F" secondAttribute="leadingMargin" id="g8U-dN-VW4"/>
+                            <constraint firstItem="Gu6-By-viX" firstAttribute="top" secondItem="p2f-rN-ge2" secondAttribute="bottom" constant="8" id="hAD-ap-5Gg"/>
+                            <constraint firstItem="tmB-06-whU" firstAttribute="trailing" secondItem="8zX-HK-q8F" secondAttribute="trailingMargin" id="iy2-pE-bRz"/>
+                            <constraint firstItem="Gu6-By-viX" firstAttribute="trailing" secondItem="8zX-HK-q8F" secondAttribute="trailingMargin" id="nsj-Ur-9p3"/>
+                            <constraint firstItem="dcp-LH-DOK" firstAttribute="top" secondItem="Bjw-pR-qKT" secondAttribute="bottom" constant="8" id="qjw-EC-XsN"/>
+                            <constraint firstItem="p2f-rN-ge2" firstAttribute="top" secondItem="tmB-06-whU" secondAttribute="bottom" constant="8" id="vuw-2g-h4t"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="genderLabel" destination="Gu6-By-viX" id="bjo-6i-54B"/>
+                        <outlet property="imageView" destination="dcp-LH-DOK" id="RJk-GB-WwD"/>
+                        <outlet property="nameLabel" destination="tmB-06-whU" id="Clw-BB-6hj"/>
+                        <outlet property="nationalIDLabel" destination="p2f-rN-ge2" id="cCY-jJ-Xpc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6De-hy-AO4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -192,6 +192,12 @@
 }
 
 - (void)downloadImageWithURL:(NSString *)stringURL identification:(NSNumber *)identification withCompletionHandler:(DownloadImageCompletionHandler)completionHandler {
+    if (self.downloadTask != nil) {
+        [self.downloadTask cancel];
+    }
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
+    
     NSURL *url = [NSURL URLWithString:stringURL];
     NSURLSession *session = [NSURLSession sharedSession];
     self.downloadTask = [session downloadTaskWithURL:url completionHandler: ^(NSURL *location, NSURLResponse *response, NSError *error) {
@@ -204,6 +210,10 @@
             [data writeToURL:[documentsDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", identification]] atomically:true];
             completionHandler(nil);
         }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
+        });
     }];
     
     [self.downloadTask resume];
