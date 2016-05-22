@@ -13,5 +13,6 @@
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) Pokemon *pokemon;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end

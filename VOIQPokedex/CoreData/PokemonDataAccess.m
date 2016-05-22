@@ -56,6 +56,21 @@
     return pokemon;
 }
 
+- (void)updatePokemonInfoForName:(NSString *)name withInfo:(NSDictionary *)infoDictionary withCompletionHandler:(SaveListCompletionHandler)completionHandler {
+    Pokemon *pokemon = [self loadPokemonWithName:name];
+    if (pokemon != nil) {
+        NSInteger gender_rate = [[infoDictionary objectForKey:@"gender_rate"] doubleValue] / 8;
+        pokemon.gender_rate = [NSNumber numberWithInteger:gender_rate];
+        pokemon.pokemon_id = [NSNumber numberWithInteger:[[infoDictionary objectForKey:@"id"] integerValue]];
+        pokemon.image = [infoDictionary objectForKey:@"image"];
+        
+        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [delegate saveContext];
+    }
+    
+    completionHandler();
+}
+
 - (NSFetchedResultsController *)fetchedResultsController {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:POKEMON_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];

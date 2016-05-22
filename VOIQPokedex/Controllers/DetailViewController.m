@@ -8,6 +8,8 @@
 
 #import "DetailViewController.h"
 
+#import "AppDelegate.h"
+#import "PokemonDataAccess.h"
 #import "ServicesManager.h"
 
 @interface DetailViewController ()
@@ -23,6 +25,16 @@
     
     ServicesManager *servicesManager = [[ServicesManager alloc] init];
     [servicesManager getPokemonInfo:self.pokemon.name withCompletionHandler:^(NSDictionary *infoDictionary, NSError *error) {
+        if (error != nil) {
+            AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [delegate showError:error];
+        } else {
+            PokemonDataAccess *pokemonDataAccess = [[PokemonDataAccess alloc]init];
+            pokemonDataAccess.managedObjectContext = self.managedObjectContext;
+            [pokemonDataAccess updatePokemonInfoForName:self.pokemon.name withInfo:infoDictionary withCompletionHandler:^() {
+                
+            }];
+        }
     }];
 }
 

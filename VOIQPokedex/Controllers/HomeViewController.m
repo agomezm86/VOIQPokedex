@@ -46,6 +46,7 @@
         Pokemon *pokemon = (Pokemon *)[self.fetchedResultsController objectAtIndexPath:indexPath];
         DetailViewController *detailViewController = segue.destinationViewController;
         detailViewController.pokemon = pokemon;
+        detailViewController.managedObjectContext = self.managedObjectContext;
     }
 }
 

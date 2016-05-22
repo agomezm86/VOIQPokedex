@@ -22,5 +22,7 @@
 
 - (void)fatalCoreDataError:(NSError *)error;
 
+- (void)showError:(NSError *)error;
+
 @end
 

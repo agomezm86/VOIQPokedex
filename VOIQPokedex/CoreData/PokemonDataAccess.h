@@ -16,5 +16,6 @@ typedef void(^SaveListCompletionHandler)();
 
 - (void)saveListOfPokemon:(NSArray *)listArray withCompletionHandler:(SaveListCompletionHandler)completionHandler;
 - (NSFetchedResultsController *)fetchedResultsController;
+- (void)updatePokemonInfoForName:(NSString *)name withInfo:(NSDictionary *)infoDictionary withCompletionHandler:(SaveListCompletionHandler)completionHandler;
 
 @end
