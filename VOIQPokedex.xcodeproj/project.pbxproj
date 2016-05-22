@@ -24,6 +24,7 @@
 		1223169B1CF1890E00BBB2F8 /* Pokemon+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316981CF1890E00BBB2F8 /* Pokemon+CoreDataProperties.m */; };
 		1223169C1CF1890E00BBB2F8 /* Pokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1223169A1CF1890E00BBB2F8 /* Pokemon.m */; };
 		1223169F1CF192F500BBB2F8 /* ActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1223169E1CF192F500BBB2F8 /* ActivityIndicatorView.m */; };
+		122316A21CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316A11CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		1223169A1CF1890E00BBB2F8 /* Pokemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pokemon.m; path = CoreData/Pokemon.m; sourceTree = "<group>"; };
 		1223169D1CF192F500BBB2F8 /* ActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityIndicatorView.h; path = Utils/ActivityIndicatorView.h; sourceTree = "<group>"; };
 		1223169E1CF192F500BBB2F8 /* ActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityIndicatorView.m; path = Utils/ActivityIndicatorView.m; sourceTree = "<group>"; };
+		122316A01CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+InfiniteScroll.h"; path = "Utils/UIScrollView+InfiniteScroll.h"; sourceTree = "<group>"; };
+		122316A11CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+InfiniteScroll.m"; path = "Utils/UIScrollView+InfiniteScroll.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +199,8 @@
 				1223169E1CF192F500BBB2F8 /* ActivityIndicatorView.m */,
 				122316771CF1456400BBB2F8 /* Constants.h */,
 				122316781CF1456400BBB2F8 /* Constants.m */,
+				122316A01CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.h */,
+				122316A11CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -355,6 +360,7 @@
 				1223168F1CF1797A00BBB2F8 /* DetailViewController.m in Sources */,
 				1223169B1CF1890E00BBB2F8 /* Pokemon+CoreDataProperties.m in Sources */,
 				122316461CF13E8100BBB2F8 /* VOIQPokedex.xcdatamodeld in Sources */,
+				122316A21CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.m in Sources */,
 				122316711CF13FEC00BBB2F8 /* HomeViewController.m in Sources */,
 				1223169F1CF192F500BBB2F8 /* ActivityIndicatorView.m in Sources */,
 				122316791CF1456400BBB2F8 /* Constants.m in Sources */,

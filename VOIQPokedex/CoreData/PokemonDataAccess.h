@@ -19,7 +19,7 @@ typedef void(^SaveListCompletionHandler)();
 + (id)sharedInstance;
 
 - (void)saveListOfPokemon:(NSArray *)listArray withCompletionHandler:(SaveListCompletionHandler)completionHandler;
-- (NSFetchedResultsController *)fetchedResultsController;
+- (NSFetchedResultsController *)fetchedResultsControllerWithLimit:(NSInteger)fetchLimit;
 - (void)updatePokemonInfoForName:(NSString *)name withInfo:(NSDictionary *)infoDictionary withCompletionHandler:(SaveListCompletionHandler)completionHandler;
 - (Pokemon *)loadPokemonWithName:(NSString *)name;
 - (NSInteger)loadPokemonCount;

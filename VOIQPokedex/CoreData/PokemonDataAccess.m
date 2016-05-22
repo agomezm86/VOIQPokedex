@@ -83,8 +83,8 @@
 - (void)updatePokemonInfoForName:(NSString *)name withInfo:(NSDictionary *)infoDictionary withCompletionHandler:(SaveListCompletionHandler)completionHandler {
     Pokemon *pokemon = [self loadPokemonWithName:name];
     if (pokemon != nil) {
-        NSInteger gender_rate = [[infoDictionary objectForKey:@"gender_rate"] doubleValue] / 8;
-        pokemon.gender_rate = [NSNumber numberWithInteger:gender_rate];
+        double gender_rate = [[infoDictionary objectForKey:@"gender_rate"] doubleValue] / 8;
+        pokemon.gender_rate = [NSNumber numberWithDouble:gender_rate];
         pokemon.pokemon_id = [NSNumber numberWithInteger:[[infoDictionary objectForKey:@"id"] integerValue]];
         pokemon.image = [infoDictionary objectForKey:@"image"];
         
@@ -95,14 +95,15 @@
     completionHandler();
 }
 
-- (NSFetchedResultsController *)fetchedResultsController {
+- (NSFetchedResultsController *)fetchedResultsControllerWithLimit:(NSInteger)fetchLimit {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:POKEMON_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:true];
 
     fetchRequest.entity = entity;
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-        
+    fetchRequest.fetchLimit = fetchLimit;
+    
     NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     return fetchedResultsController;
 }

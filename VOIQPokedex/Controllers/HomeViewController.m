@@ -12,10 +12,12 @@
 #import "DetailViewController.h"
 #import "Pokemon.h"
 #import "PokemonDataAccess.h"
+#import "UIScrollView+InfiniteScroll.h"
 
 @interface HomeViewController ()
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (assign, nonatomic) NSInteger fetchLimit;
 
 @end
 
@@ -23,12 +25,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    __weak typeof(self) weakSelf = self;
+    self.tableView.infiniteScrollIndicatorStyle = UIActivityIndicatorViewStyleGray;
+    [self.tableView addInfiniteScrollWithHandler:^(UITableView *tableView) {
+        weakSelf.fetchLimit += 20;
+        [weakSelf performFetch];
+        [tableView reloadData];
+        [tableView finishInfiniteScroll];
+    }];
 }
 
 - (void)performFetch {
+    if (self.fetchLimit == 0) {
+        self.fetchLimit = 20;
+    }
     PokemonDataAccess *pokemonDataAccess = [PokemonDataAccess sharedInstance];
     pokemonDataAccess.managedObjectContext = self.managedObjectContext;
-    self.fetchedResultsController = [pokemonDataAccess fetchedResultsController];
+    self.fetchedResultsController = [pokemonDataAccess fetchedResultsControllerWithLimit:self.fetchLimit];
     self.fetchedResultsController.delegate = self;
     
     NSError *error;
