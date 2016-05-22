@@ -78,9 +78,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gu6-By-viX">
-                                <rect key="frame" x="20" y="298" width="560" height="21"/>
+                                <rect key="frame" x="20" y="310" width="560" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Kup-U3-x5b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEe-pt-Evo">
+                                <rect key="frame" x="20" y="339" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Zoh-3m-Plv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -96,13 +105,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="cEe-pt-Evo" firstAttribute="top" secondItem="Gu6-By-viX" secondAttribute="bottom" constant="8" id="3AQ-fe-u8S"/>
                             <constraint firstItem="tmB-06-whU" firstAttribute="leading" secondItem="8zX-HK-q8F" secondAttribute="leadingMargin" id="53S-hh-TlI"/>
                             <constraint firstItem="dcp-LH-DOK" firstAttribute="centerX" secondItem="8zX-HK-q8F" secondAttribute="centerX" id="AUt-cI-F5g"/>
                             <constraint firstItem="Gu6-By-viX" firstAttribute="leading" secondItem="8zX-HK-q8F" secondAttribute="leadingMargin" id="HP3-ON-SUU"/>
                             <constraint firstItem="tmB-06-whU" firstAttribute="top" secondItem="dcp-LH-DOK" secondAttribute="bottom" constant="18" id="JYW-SD-YUr"/>
+                            <constraint firstItem="cEe-pt-Evo" firstAttribute="leading" secondItem="8zX-HK-q8F" secondAttribute="leadingMargin" id="K97-Gj-vgS"/>
                             <constraint firstItem="p2f-rN-ge2" firstAttribute="trailing" secondItem="8zX-HK-q8F" secondAttribute="trailingMargin" id="QI1-Aj-8dh"/>
+                            <constraint firstItem="cEe-pt-Evo" firstAttribute="trailing" secondItem="8zX-HK-q8F" secondAttribute="trailingMargin" id="fH0-wK-MFZ"/>
                             <constraint firstItem="p2f-rN-ge2" firstAttribute="leading" secondItem="8zX-HK-q8F" secondAttribute="leadingMargin" id="g8U-dN-VW4"/>
-                            <constraint firstItem="Gu6-By-viX" firstAttribute="top" secondItem="p2f-rN-ge2" secondAttribute="bottom" constant="8" id="hAD-ap-5Gg"/>
+                            <constraint firstItem="Gu6-By-viX" firstAttribute="top" secondItem="p2f-rN-ge2" secondAttribute="bottom" constant="20" id="hAD-ap-5Gg"/>
                             <constraint firstItem="tmB-06-whU" firstAttribute="trailing" secondItem="8zX-HK-q8F" secondAttribute="trailingMargin" id="iy2-pE-bRz"/>
                             <constraint firstItem="Gu6-By-viX" firstAttribute="trailing" secondItem="8zX-HK-q8F" secondAttribute="trailingMargin" id="nsj-Ur-9p3"/>
                             <constraint firstItem="dcp-LH-DOK" firstAttribute="top" secondItem="Bjw-pR-qKT" secondAttribute="bottom" constant="8" id="qjw-EC-XsN"/>
@@ -110,7 +122,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="genderLabel" destination="Gu6-By-viX" id="bjo-6i-54B"/>
+                        <outlet property="genderLabel" destination="cEe-pt-Evo" id="itm-6C-9Li"/>
+                        <outlet property="genderTitleLabel" destination="Gu6-By-viX" id="L78-g9-DvE"/>
                         <outlet property="imageView" destination="dcp-LH-DOK" id="RJk-GB-WwD"/>
                         <outlet property="nameLabel" destination="tmB-06-whU" id="Clw-BB-6hj"/>
                         <outlet property="nationalIDLabel" destination="p2f-rN-ge2" id="cCY-jJ-Xpc"/>

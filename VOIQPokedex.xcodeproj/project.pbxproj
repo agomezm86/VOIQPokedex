@@ -129,19 +129,19 @@
 		122316371CF13E8100BBB2F8 /* VOIQPokedex */ = {
 			isa = PBXGroup;
 			children = (
-				122316801CF154B700BBB2F8 /* CoreData */,
-				1223166E1CF13FC400BBB2F8 /* Controllers */,
-				122316721CF1404D00BBB2F8 /* Services */,
-				122316761CF1454300BBB2F8 /* Utils */,
 				1223163B1CF13E8100BBB2F8 /* AppDelegate.h */,
 				1223163C1CF13E8100BBB2F8 /* AppDelegate.m */,
-				122316411CF13E8100BBB2F8 /* Main.storyboard */,
 				122316471CF13E8100BBB2F8 /* Assets.xcassets */,
-				122316491CF13E8100BBB2F8 /* LaunchScreen.storyboard */,
+				1223166E1CF13FC400BBB2F8 /* Controllers */,
+				122316801CF154B700BBB2F8 /* CoreData */,
 				1223164C1CF13E8100BBB2F8 /* Info.plist */,
-				122316441CF13E8100BBB2F8 /* VOIQPokedex.xcdatamodeld */,
-				122316381CF13E8100BBB2F8 /* Supporting Files */,
+				122316491CF13E8100BBB2F8 /* LaunchScreen.storyboard */,
 				1223167E1CF14BD000BBB2F8 /* Localizable.strings */,
+				122316411CF13E8100BBB2F8 /* Main.storyboard */,
+				122316721CF1404D00BBB2F8 /* Services */,
+				122316381CF13E8100BBB2F8 /* Supporting Files */,
+				122316761CF1454300BBB2F8 /* Utils */,
+				122316441CF13E8100BBB2F8 /* VOIQPokedex.xcdatamodeld */,
 			);
 			path = VOIQPokedex;
 			sourceTree = "<group>";
@@ -208,12 +208,12 @@
 		122316801CF154B700BBB2F8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				122316841CF155CF00BBB2F8 /* PokemonDataAccess.h */,
-				122316851CF155CF00BBB2F8 /* PokemonDataAccess.m */,
-				122316971CF1890E00BBB2F8 /* Pokemon+CoreDataProperties.h */,
-				122316981CF1890E00BBB2F8 /* Pokemon+CoreDataProperties.m */,
 				122316991CF1890E00BBB2F8 /* Pokemon.h */,
 				1223169A1CF1890E00BBB2F8 /* Pokemon.m */,
+				122316971CF1890E00BBB2F8 /* Pokemon+CoreDataProperties.h */,
+				122316981CF1890E00BBB2F8 /* Pokemon+CoreDataProperties.m */,
+				122316841CF155CF00BBB2F8 /* PokemonDataAccess.h */,
+				122316851CF155CF00BBB2F8 /* PokemonDataAccess.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
