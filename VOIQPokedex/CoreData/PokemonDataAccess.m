@@ -14,6 +14,15 @@
 
 @implementation PokemonDataAccess
 
++ (id)sharedInstance {
+    static PokemonDataAccess *pokemonDataAccess = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        pokemonDataAccess = [[self alloc] init];
+    });
+    return pokemonDataAccess;
+}
+
 - (void)saveListOfPokemon:(NSArray *)listArray withCompletionHandler:(SaveListCompletionHandler)completionHandler {
     for (NSDictionary *dictionary in listArray) {
         NSString *name = [dictionary objectForKey:@"name"];
@@ -53,6 +62,22 @@
     }
     
     return pokemon;
+}
+
+- (NSInteger)loadPokemonCount {
+    NSEntityDescription *entity = [NSEntityDescription entityForName:POKEMON_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    fetchRequest.entity = entity;
+    
+    NSError *error;
+    NSArray *array = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [delegate fatalCoreDataError:error];
+    }
+    
+    return array.count;
 }
 
 - (void)updatePokemonInfoForName:(NSString *)name withInfo:(NSDictionary *)infoDictionary withCompletionHandler:(SaveListCompletionHandler)completionHandler {

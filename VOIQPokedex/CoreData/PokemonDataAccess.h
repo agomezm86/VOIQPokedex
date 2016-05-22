@@ -16,9 +16,12 @@ typedef void(^SaveListCompletionHandler)();
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
++ (id)sharedInstance;
+
 - (void)saveListOfPokemon:(NSArray *)listArray withCompletionHandler:(SaveListCompletionHandler)completionHandler;
 - (NSFetchedResultsController *)fetchedResultsController;
 - (void)updatePokemonInfoForName:(NSString *)name withInfo:(NSDictionary *)infoDictionary withCompletionHandler:(SaveListCompletionHandler)completionHandler;
 - (Pokemon *)loadPokemonWithName:(NSString *)name;
+- (NSInteger)loadPokemonCount;
 
 @end

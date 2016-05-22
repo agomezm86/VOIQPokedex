@@ -23,6 +23,7 @@
 		1223168F1CF1797A00BBB2F8 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1223168E1CF1797A00BBB2F8 /* DetailViewController.m */; };
 		1223169B1CF1890E00BBB2F8 /* Pokemon+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316981CF1890E00BBB2F8 /* Pokemon+CoreDataProperties.m */; };
 		1223169C1CF1890E00BBB2F8 /* Pokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1223169A1CF1890E00BBB2F8 /* Pokemon.m */; };
+		1223169F1CF192F500BBB2F8 /* ActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1223169E1CF192F500BBB2F8 /* ActivityIndicatorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		122316981CF1890E00BBB2F8 /* Pokemon+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Pokemon+CoreDataProperties.m"; path = "CoreData/Pokemon+CoreDataProperties.m"; sourceTree = "<group>"; };
 		122316991CF1890E00BBB2F8 /* Pokemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pokemon.h; path = CoreData/Pokemon.h; sourceTree = "<group>"; };
 		1223169A1CF1890E00BBB2F8 /* Pokemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pokemon.m; path = CoreData/Pokemon.m; sourceTree = "<group>"; };
+		1223169D1CF192F500BBB2F8 /* ActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityIndicatorView.h; path = Utils/ActivityIndicatorView.h; sourceTree = "<group>"; };
+		1223169E1CF192F500BBB2F8 /* ActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityIndicatorView.m; path = Utils/ActivityIndicatorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +192,8 @@
 		122316761CF1454300BBB2F8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1223169D1CF192F500BBB2F8 /* ActivityIndicatorView.h */,
+				1223169E1CF192F500BBB2F8 /* ActivityIndicatorView.m */,
 				122316771CF1456400BBB2F8 /* Constants.h */,
 				122316781CF1456400BBB2F8 /* Constants.m */,
 			);
@@ -351,6 +356,7 @@
 				1223169B1CF1890E00BBB2F8 /* Pokemon+CoreDataProperties.m in Sources */,
 				122316461CF13E8100BBB2F8 /* VOIQPokedex.xcdatamodeld in Sources */,
 				122316711CF13FEC00BBB2F8 /* HomeViewController.m in Sources */,
+				1223169F1CF192F500BBB2F8 /* ActivityIndicatorView.m in Sources */,
 				122316791CF1456400BBB2F8 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +503,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = agomez.VOIQPokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -509,6 +516,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = agomez.VOIQPokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

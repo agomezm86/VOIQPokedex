@@ -34,7 +34,7 @@
             AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             [delegate showError:error];
         } else {
-            PokemonDataAccess *pokemonDataAccess = [[PokemonDataAccess alloc]init];
+            PokemonDataAccess *pokemonDataAccess = [PokemonDataAccess sharedInstance];
             pokemonDataAccess.managedObjectContext = self.managedObjectContext;
             [pokemonDataAccess updatePokemonInfoForName:self.pokemon.name withInfo:infoDictionary withCompletionHandler:^() {
                 self.pokemon = [pokemonDataAccess loadPokemonWithName:self.pokemon.name];

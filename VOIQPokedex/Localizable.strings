@@ -11,3 +11,4 @@
 "INTERNAL_ERROR" = "Internal Error";
 "FATAL_ERROR_MESSAGE" = "There was a fatal error in the app and it cannot continue. Press OK to terminate the app.";
 "FATAL_CORE_DATA_ERROR" = "Fatal Core Data Error";
+"LOADING_MESSAGE" = "Please wait while loading data for the first time...";

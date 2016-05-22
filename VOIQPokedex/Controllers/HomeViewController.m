@@ -26,7 +26,7 @@
 }
 
 - (void)performFetch {
-    PokemonDataAccess *pokemonDataAccess = [[PokemonDataAccess alloc]init];
+    PokemonDataAccess *pokemonDataAccess = [PokemonDataAccess sharedInstance];
     pokemonDataAccess.managedObjectContext = self.managedObjectContext;
     self.fetchedResultsController = [pokemonDataAccess fetchedResultsController];
     self.fetchedResultsController.delegate = self;

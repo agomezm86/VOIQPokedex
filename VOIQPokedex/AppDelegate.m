@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+#import "ActivityIndicatorView.h"
 #import "HomeViewController.h"
 #import "PokemonDataAccess.h"
 #import "ServicesManager.h"
@@ -36,23 +37,47 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    PokemonDataAccess *pokemonDataAccess = [PokemonDataAccess sharedInstance];
+    pokemonDataAccess.managedObjectContext = self.managedObjectContext;
+    NSInteger pokemonCount = [pokemonDataAccess loadPokemonCount];
+    
+    CGRect bounds = self.homeViewController.view.bounds;
+    ActivityIndicatorView *activityIndicatorView = nil;
+    if (pokemonCount == 0) {
+        self.homeViewController.view.userInteractionEnabled = false;
+        activityIndicatorView = [[ActivityIndicatorView alloc] initWithFrame:CGRectMake((bounds.size.width / 2) - 75, (bounds.size.height / 2) - 75, 150, 150)];
+        [self.homeViewController.view addSubview:activityIndicatorView];
+    }
+    
     ServicesManager *servicesManager = [[ServicesManager alloc] init];
     [servicesManager getPokemonsCountWithCompletionHandler:^(NSInteger count, NSError *error) {
         if (error) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                if (activityIndicatorView != nil) {
+                    self.homeViewController.view.userInteractionEnabled = true;
+                    [activityIndicatorView removeFromSuperview];
+                }
                 [self showError:error];
             });
         } else {
             [servicesManager getListOfAllPokemons:count withCompletionHandler:^(NSArray *listArray, NSError *error) {
                 if (error) {
                     dispatch_async(dispatch_get_main_queue(), ^{
+                        if (activityIndicatorView != nil) {
+                            self.homeViewController.view.userInteractionEnabled = true;
+                            [activityIndicatorView removeFromSuperview];
+                        }
                         [self showError:error];
                     });
                 } else {
-                    PokemonDataAccess *pokemonDataAccess = [[PokemonDataAccess alloc]init];
-                    pokemonDataAccess.managedObjectContext = self.managedObjectContext;
                     [pokemonDataAccess saveListOfPokemon:listArray withCompletionHandler:^() {
-                        [self.homeViewController performFetch];
+                        dispatch_async(dispatch_get_main_queue(), ^() {
+                            if (activityIndicatorView != nil) {
+                                self.homeViewController.view.userInteractionEnabled = true;
+                                [activityIndicatorView removeFromSuperview];
+                            }
+                            [self.homeViewController performFetch];
+                        });
                     }];
                 }
             }];
