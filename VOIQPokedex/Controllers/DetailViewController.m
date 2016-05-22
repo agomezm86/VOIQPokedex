@@ -43,7 +43,7 @@
     }
     
     ServicesManager *servicesManager = [[ServicesManager alloc] init];
-    [servicesManager getPokemonInfo:self.pokemon.name withCompletionHandler:^(NSDictionary *infoDictionary, NSError *error) {
+    [servicesManager getPokemonDetailedInfo:self.pokemon.name withCompletionHandler:^(NSDictionary *infoDictionary, NSError *error) {
         if (error != nil) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (activityIndicatorView != nil) {

@@ -9,5 +9,6 @@
 #ifdef __OBJC__
 #import "Constants.h"
 #import <CoreData/CoreData.h>
+#import "Enumerations.h"
 #import <Foundation/Foundation.h>
 #endif

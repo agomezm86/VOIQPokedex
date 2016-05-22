@@ -9,9 +9,8 @@
 #import "Constants.h"
 
 #define BASE_URL @"http://pokeapi.co/api/v2/"
-#define POKEMON @"pokemon?limit=1"
-#define POKEMON_COUNT @"pokemon?limit="
-#define POKEMON_DETAILED_INFO @"pokemon/"
+#define POKEMON_URL @"pokemon?limit=1"
+#define POKEMON_DETAILED_INFO_URL @"pokemon/"
 
 @implementation Constants
 
@@ -27,15 +26,15 @@ NSString *const ManagedObjectContextSaveDidFailNotification = @"ManagedObjectCon
 }
 
 + (NSURL *)getPokemonCountURL {
-    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", BASE_URL, POKEMON]];
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", BASE_URL, POKEMON_URL]];
 }
 
 + (NSURL *)getListOfAllPokemonURL:(NSInteger)count {
-    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld", BASE_URL, POKEMON, (long)count]];
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%ld", BASE_URL, POKEMON_URL, (long)count]];
 }
 
 + (NSURL *)getPokemonDetailedInfoURL:(NSString *)name {
-    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@", BASE_URL, POKEMON_DETAILED_INFO, name]];
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@", BASE_URL, POKEMON_DETAILED_INFO_URL, name]];
 }
 
 @end

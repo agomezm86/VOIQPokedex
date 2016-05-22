@@ -83,6 +83,7 @@
 		122316A31CF2012400BBB2F8 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		122316A41CF204EF00BBB2F8 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataStack.h; path = CoreData/CoreDataStack.h; sourceTree = "<group>"; };
 		122316A51CF204EF00BBB2F8 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataStack.m; path = CoreData/CoreDataStack.m; sourceTree = "<group>"; };
+		122316A71CF221E400BBB2F8 /* Enumerations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enumerations.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +192,7 @@
 		122316721CF1404D00BBB2F8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				122316A71CF221E400BBB2F8 /* Enumerations.h */,
 				122316731CF1407800BBB2F8 /* ServicesManager.h */,
 				122316741CF1407800BBB2F8 /* ServicesManager.m */,
 			);

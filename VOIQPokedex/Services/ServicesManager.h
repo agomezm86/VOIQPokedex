@@ -8,14 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^CountCompletionHandler)(NSInteger count, NSError *error);
-typedef void(^CompleteListCompletionHandler)(NSArray *listArray, NSError *error);
-typedef void(^DetailedInfoCompletionHandler)(NSDictionary *infoDictionary, NSError *error);
+typedef void(^ServiceCompletionHandler)(id response, NSError *error);
 typedef void(^DownloadImageCompletionHandler)(NSError *error);
 
 @interface ServicesManager : NSObject
 
-- (void)getListOfAllPokemonsWithCompletionHandler:(CompleteListCompletionHandler)completionHandler;
-- (void)getPokemonInfo:(NSString *)name withCompletionHandler:(DetailedInfoCompletionHandler)completionHandler;
+- (void)getListOfAllPokemonsWithCompletionHandler:(ServiceCompletionHandler)completionHandler;
+- (void)getPokemonDetailedInfo:(NSString *)name withCompletionHandler:(ServiceCompletionHandler)completionHandler;
 
 @end
