@@ -8,6 +8,8 @@
 
 #import "DetailViewController.h"
 
+#import "ServicesManager.h"
+
 @interface DetailViewController ()
 
 @end
@@ -18,6 +20,10 @@
     [super viewDidLoad];
     
     self.title = [self.pokemon.name capitalizedString];
+    
+    ServicesManager *servicesManager = [[ServicesManager alloc] init];
+    [servicesManager getPokemonInfo:self.pokemon.name withCompletionHandler:^(NSDictionary *infoDictionary, NSError *error) {
+    }];
 }
 
 @end

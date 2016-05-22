@@ -12,5 +12,6 @@
 
 + (NSURL *)getPokemonCountURL;
 + (NSURL *)getListOfAllPokemonURL:(NSInteger)count;
++ (NSURL *)getPokemonDetailedInfoURL:(NSString *)name;
 
 @end
