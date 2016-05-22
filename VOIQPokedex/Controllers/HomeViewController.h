@@ -9,11 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-#import "CoreDataStack.h"
-
 @interface HomeViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) CoreDataStack *coreDataStack;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 - (void)performFetch;
 

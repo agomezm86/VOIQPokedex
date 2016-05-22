@@ -22,18 +22,19 @@
         
         Pokemon *pokemon = [self loadPokemonWithName:name];
         if (pokemon == nil) {
-            pokemon = [NSEntityDescription insertNewObjectForEntityForName:POKEMON_ENTITY_NAME inManagedObjectContext:self.coreDataStack.managedObjectContext];
-            pokemon.name = [name capitalizedString];
+            pokemon = [NSEntityDescription insertNewObjectForEntityForName:POKEMON_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
+            pokemon.name = name;
             pokemon.url = url;
         }
     }
     
-    [self.coreDataStack saveContext];
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [delegate saveContext];
     completionHandler();
 }
 
 - (Pokemon *)loadPokemonWithName:(NSString *)name {
-    NSEntityDescription *entity = [NSEntityDescription entityForName:POKEMON_ENTITY_NAME inManagedObjectContext:self.coreDataStack.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:POKEMON_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", name];
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -42,7 +43,7 @@
     
     Pokemon *pokemon = nil;
     NSError *error;
-    NSArray *array = [self.coreDataStack.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    NSArray *array = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     if (error) {
         AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [delegate fatalCoreDataError:error];
@@ -57,13 +58,13 @@
 
 - (NSFetchedResultsController *)fetchedResultsController {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:POKEMON_ENTITY_NAME inManagedObjectContext:self.coreDataStack.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:POKEMON_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:true];
 
     fetchRequest.entity = entity;
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
         
-    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.coreDataStack.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     return fetchedResultsController;
 }
 

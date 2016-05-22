@@ -19,10 +19,10 @@
 		122316751CF1407800BBB2F8 /* ServicesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316741CF1407800BBB2F8 /* ServicesManager.m */; };
 		122316791CF1456400BBB2F8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316781CF1456400BBB2F8 /* Constants.m */; };
 		1223167F1CF14BD000BBB2F8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1223167E1CF14BD000BBB2F8 /* Localizable.strings */; };
-		122316831CF154D000BBB2F8 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316821CF154D000BBB2F8 /* CoreDataStack.m */; };
 		122316861CF155CF00BBB2F8 /* PokemonDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316851CF155CF00BBB2F8 /* PokemonDataAccess.m */; };
 		1223168B1CF156F800BBB2F8 /* Pokemon+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316881CF156F800BBB2F8 /* Pokemon+CoreDataProperties.m */; };
 		1223168C1CF156F800BBB2F8 /* Pokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1223168A1CF156F800BBB2F8 /* Pokemon.m */; };
+		1223168F1CF1797A00BBB2F8 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1223168E1CF1797A00BBB2F8 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,14 +65,14 @@
 		122316771CF1456400BBB2F8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Utils/Constants.h; sourceTree = "<group>"; };
 		122316781CF1456400BBB2F8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Utils/Constants.m; sourceTree = "<group>"; };
 		1223167E1CF14BD000BBB2F8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		122316811CF154D000BBB2F8 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataStack.h; path = CoreData/CoreDataStack.h; sourceTree = "<group>"; };
-		122316821CF154D000BBB2F8 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataStack.m; path = CoreData/CoreDataStack.m; sourceTree = "<group>"; };
 		122316841CF155CF00BBB2F8 /* PokemonDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PokemonDataAccess.h; path = CoreData/PokemonDataAccess.h; sourceTree = "<group>"; };
 		122316851CF155CF00BBB2F8 /* PokemonDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PokemonDataAccess.m; path = CoreData/PokemonDataAccess.m; sourceTree = "<group>"; };
 		122316871CF156F800BBB2F8 /* Pokemon+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Pokemon+CoreDataProperties.h"; path = "CoreData/Pokemon+CoreDataProperties.h"; sourceTree = "<group>"; };
 		122316881CF156F800BBB2F8 /* Pokemon+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Pokemon+CoreDataProperties.m"; path = "CoreData/Pokemon+CoreDataProperties.m"; sourceTree = "<group>"; };
 		122316891CF156F800BBB2F8 /* Pokemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pokemon.h; path = CoreData/Pokemon.h; sourceTree = "<group>"; };
 		1223168A1CF156F800BBB2F8 /* Pokemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pokemon.m; path = CoreData/Pokemon.m; sourceTree = "<group>"; };
+		1223168D1CF1797A00BBB2F8 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = Controllers/DetailViewController.h; sourceTree = "<group>"; };
+		1223168E1CF1797A00BBB2F8 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = Controllers/DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +169,8 @@
 		1223166E1CF13FC400BBB2F8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1223168D1CF1797A00BBB2F8 /* DetailViewController.h */,
+				1223168E1CF1797A00BBB2F8 /* DetailViewController.m */,
 				1223166F1CF13FEC00BBB2F8 /* HomeViewController.h */,
 				122316701CF13FEC00BBB2F8 /* HomeViewController.m */,
 			);
@@ -196,8 +198,6 @@
 		122316801CF154B700BBB2F8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				122316811CF154D000BBB2F8 /* CoreDataStack.h */,
-				122316821CF154D000BBB2F8 /* CoreDataStack.m */,
 				122316841CF155CF00BBB2F8 /* PokemonDataAccess.h */,
 				122316851CF155CF00BBB2F8 /* PokemonDataAccess.m */,
 				122316871CF156F800BBB2F8 /* Pokemon+CoreDataProperties.h */,
@@ -344,10 +344,10 @@
 			files = (
 				1223163D1CF13E8100BBB2F8 /* AppDelegate.m in Sources */,
 				122316751CF1407800BBB2F8 /* ServicesManager.m in Sources */,
-				122316831CF154D000BBB2F8 /* CoreDataStack.m in Sources */,
 				1223168C1CF156F800BBB2F8 /* Pokemon.m in Sources */,
 				122316861CF155CF00BBB2F8 /* PokemonDataAccess.m in Sources */,
 				1223163A1CF13E8100BBB2F8 /* main.m in Sources */,
+				1223168F1CF1797A00BBB2F8 /* DetailViewController.m in Sources */,
 				1223168B1CF156F800BBB2F8 /* Pokemon+CoreDataProperties.m in Sources */,
 				122316461CF13E8100BBB2F8 /* VOIQPokedex.xcdatamodeld in Sources */,
 				122316711CF13FEC00BBB2F8 /* HomeViewController.m in Sources */,
@@ -493,6 +493,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = VOIQPokedex/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = agomez.VOIQPokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -504,6 +505,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = VOIQPokedex/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = agomez.VOIQPokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";

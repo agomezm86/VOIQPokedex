@@ -8,13 +8,11 @@
 
 #import <CoreData/CoreData.h>
 
-#import "CoreDataStack.h"
-
 typedef void(^SaveListCompletionHandler)();
 
 @interface PokemonDataAccess : NSObject
 
-@property (strong, nonatomic) CoreDataStack *coreDataStack;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 - (void)saveListOfPokemon:(NSArray *)listArray withCompletionHandler:(SaveListCompletionHandler)completionHandler;
 - (NSFetchedResultsController *)fetchedResultsController;

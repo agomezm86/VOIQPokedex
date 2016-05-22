@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 
 #import "AppDelegate.h"
+#import "DetailViewController.h"
 #import "Pokemon.h"
 #import "PokemonDataAccess.h"
 
@@ -22,12 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self performFetch];
 }
 
 - (void)performFetch {
     PokemonDataAccess *pokemonDataAccess = [[PokemonDataAccess alloc]init];
-    pokemonDataAccess.coreDataStack = self.coreDataStack;
+    pokemonDataAccess.managedObjectContext = self.managedObjectContext;
     self.fetchedResultsController = [pokemonDataAccess fetchedResultsController];
     self.fetchedResultsController.delegate = self;
     
@@ -36,6 +36,16 @@
     if (error) {
         AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [delegate fatalCoreDataError:error];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"goToDetailView"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Pokemon *pokemon = (Pokemon *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+        DetailViewController *detailViewController = segue.destinationViewController;
+        detailViewController.pokemon = pokemon;
     }
 }
 
@@ -54,7 +64,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TableCell"];
     
     Pokemon *pokemon = (Pokemon *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = pokemon.name;
+    cell.textLabel.text = [pokemon.name capitalizedString];
     
     return cell;
 }
@@ -73,13 +83,13 @@
             [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
         case NSFetchedResultsChangeDelete:
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
         case NSFetchedResultsChangeUpdate:
-            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
         case NSFetchedResultsChangeMove:
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
     }

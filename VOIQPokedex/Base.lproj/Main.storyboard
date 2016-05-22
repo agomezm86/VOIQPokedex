@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Pokemon List-->
         <scene sceneID="qhG-vv-qny">
             <objects>
                 <tableViewController id="XcP-PL-D8b" customClass="HomeViewController" sceneMemberID="viewController">
@@ -30,6 +30,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="MhD-jp-c5d" kind="show" identifier="goToDetailView" id="vvP-bB-hq3"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -37,11 +40,29 @@
                             <outlet property="delegate" destination="XcP-PL-D8b" id="030-Le-If2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="g5S-uY-IpY"/>
+                    <navigationItem key="navigationItem" title="Pokemon List" id="g5S-uY-IpY"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rxC-6t-K7W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2348" y="75"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="RNU-ke-T7H">
+            <objects>
+                <viewController id="MhD-jp-c5d" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bjw-pR-qKT"/>
+                        <viewControllerLayoutGuide type="bottom" id="d9g-oo-czX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8zX-HK-q8F">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6De-hy-AO4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3154" y="75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mVh-eH-yoG">
