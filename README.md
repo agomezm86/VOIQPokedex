@@ -3,7 +3,7 @@ VOIQ technical test, create Pokedex using public API's
 
 ## Download
 
-The project can be downloaded throught the **Clone or dowload** button for download the ZIP file, or via git using the next command:
+The project can be downloaded through the **Clone or download** button for download the ZIP file, or via git using the next command:
 
 ```
 git clone https://github.com/agomezm86/VOIQPokedex.git
@@ -17,7 +17,7 @@ These are the most relevant specifications of the project:
 - Built for iPhone devices
 - Supports portrait and both landscape orientations
 - Unit tests and UI Tests included
-- Application test in the next simulators using iOS 8.2 and iOS 9.2: iPhone 4S, iPhone 5, iPhone 5S, iPhone 6, iPhone 6 Plus, iPhone 6S, iPhone 6S Plus
+- Application tests in the next simulators using iOS 8.2 and iOS 9.2: iPhone 4S, iPhone 5, iPhone 5S, iPhone 6, iPhone 6 Plus, iPhone 6S, iPhone 6S Plus
 
 ## Design and Implementacion
 
@@ -40,7 +40,7 @@ The most relevant libraries and classes used in this project were:
 - UITableView: Used to present the list of Pokemons in the home view
 - NSFetchedResultsController: Used as the controller between the core data access and the home view controller to handle the views updates
 - NSURLSessionTask: Used in the service class to handle all the web services requests
-- UIScrollView+InfiniteScroll: The only third party class used in the project, used to handle the infinite scroll move. The class was added to the project instead of using CocoaPods in order to avoid the download and configuration of the person who downloads the project. More info about this class in https://github.com/pronebird/UIScrollView-InfiniteScroll
+- UIScrollView+InfiniteScroll: The only third party class used in the project, used to handle the infinite scroll move. The class was added to the project instead of using CocoaPods in order to avoid the download and configuration problemas to the person who downloads the project. More info about this class in https://github.com/pronebird/UIScrollView-InfiniteScroll
 - XCTestCase: Used in the implementation of Unit Tests and UI Tests
 
 ## Unit Tests
