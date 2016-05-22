@@ -61,3 +61,27 @@ The project has one class for UITests:
 Currently the class has two UITests fully test
 
 ## Application Screenshots
+
+- The first time the app launches a message will be presented while the info is downloaded:
+
+![screenshot1](https://cloud.githubusercontent.com/assets/6619034/15456673/012da15e-203d-11e6-9ea8-e9949fb905a9.png)
+
+- The Pokemons are sorted alphabetically
+
+![screenshot2](https://cloud.githubusercontent.com/assets/6619034/15456672/012cf92a-203d-11e6-8a0c-f0ce6eb0f505.png)
+
+- If the detailed info of a Pokemon has not been downloaded, a message will be presented while the info is downloaded:
+
+![screenshot3](https://cloud.githubusercontent.com/assets/6619034/15456674/012f00a8-203d-11e6-9f9a-0911a3d9ecc1.png)
+
+- The detail view shows the image, name, national ID and gender rate
+
+![screenshot4](https://cloud.githubusercontent.com/assets/6619034/15456675/012fd74e-203d-11e6-8aca-63aa16a55700.png)
+
+- The application supports landscape orientation
+
+![screenshot5](https://cloud.githubusercontent.com/assets/6619034/15456676/01344aea-203d-11e6-85e2-f7750a971b4b.png)
+
+- The infinite scroll pagination for the app
+
+![animated_gif](https://cloud.githubusercontent.com/assets/6619034/15456713/968f7cee-203e-11e6-8a9a-df90b35f41c4.gif)
