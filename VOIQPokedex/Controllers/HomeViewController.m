@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 
+#import "AppDelegate.h"
 #import "Pokemon.h"
 #import "PokemonDataAccess.h"
 
@@ -29,17 +30,22 @@
     pokemonDataAccess.coreDataStack = self.coreDataStack;
     self.fetchedResultsController = [pokemonDataAccess fetchedResultsController];
     self.fetchedResultsController.delegate = self;
+    
+    NSError *error;
+    [self.fetchedResultsController performFetch:&error];
+    if (error) {
+        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [delegate fatalCoreDataError:error];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSLog(@"sections %lu", self.fetchedResultsController.sections.count);
     return self.fetchedResultsController.sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController.sections objectAtIndex:section];
-    NSLog(@"number of rows %lu for section %ld", (unsigned long)sectionInfo.numberOfObjects, (long)section);
     return sectionInfo.numberOfObjects;
 }
 
@@ -57,63 +63,48 @@
     [self.tableView beginUpdates];
 }
 
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeUpdate:
+            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeMove:
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller
+  didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex
+     forChangeType:(NSFetchedResultsChangeType)type {
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeUpdate:
+            break;
+        case NSFetchedResultsChangeMove:
+            break;
+    }
+}
+
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
 }
-
-/*
-func controller(controller: NSFetchedResultsController,
-                didChangeObject anObject: AnyObject,
-                atIndexPath indexPath: NSIndexPath?,
-                forChangeType type: NSFetchedResultsChangeType,
-                newIndexPath: NSIndexPath?) {
-    
-    switch type {
-    case .Insert:
-        print("*** NSFetchedResultsChangeInsert (object)")
-        tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
-        
-    case .Delete:
-        print("*** NSFetchedResultsChangeDelete (object)")
-        tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-        
-    case .Update:
-        print("*** NSFetchedResultsChangeUpdate (object)")
-        if let cell = tableView.cellForRowAtIndexPath(indexPath!) as? LocationCell {
-            let location = controller.objectAtIndexPath(indexPath!) as! Location
-            cell.configureForLocation(location)
-        }
-        
-    case .Move:
-        print("*** NSFetchedResultsChangeMove (object)")
-        tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-        tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
-        
-    }
-}
-
-func controller(controller: NSFetchedResultsController,
-                didChangeSection sectionInfo: NSFetchedResultsSectionInfo,
-                atIndex sectionIndex: Int,
-                forChangeType type: NSFetchedResultsChangeType) {
-    
-    switch type {
-    case .Insert:
-        print("*** NSFetchedResultsChangeInsert (section)")
-        tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
-        
-    case .Delete:
-        print("*** NSFetchedResultsChangeDelete (section)")
-        tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
-        
-    case .Update:
-        print("*** NSFetchedResultsChangeUpdate (section)")
-        
-    case .Move:
-        print("*** NSFetchedResultsChangeMove (section)")
-        
-    }
-    
-}*/
 
 @end

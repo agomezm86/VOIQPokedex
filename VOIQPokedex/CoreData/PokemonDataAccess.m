@@ -23,7 +23,7 @@
         Pokemon *pokemon = [self loadPokemonWithName:name];
         if (pokemon == nil) {
             pokemon = [NSEntityDescription insertNewObjectForEntityForName:POKEMON_ENTITY_NAME inManagedObjectContext:self.coreDataStack.managedObjectContext];
-            pokemon.name = name;
+            pokemon.name = [name capitalizedString];
             pokemon.url = url;
         }
     }
@@ -62,8 +62,8 @@
 
     fetchRequest.entity = entity;
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    
-    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.coreDataStack.managedObjectContext sectionNameKeyPath:@"name" cacheName:@"Pokemons"];
+        
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.coreDataStack.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     return fetchedResultsController;
 }
 
