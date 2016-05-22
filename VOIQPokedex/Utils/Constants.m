@@ -15,6 +15,7 @@
 
 @implementation Constants
 
+NSString *const PokemonEntityName = @"Pokemon";
 NSString *const ManagedObjectContextSaveDidFailNotification = @"ManagedObjectContextSaveDidFailNotification";
 
 + (NSURL *)applicationDocumentsDirectory {

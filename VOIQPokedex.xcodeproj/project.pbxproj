@@ -142,11 +142,11 @@
 				122316491CF13E8100BBB2F8 /* LaunchScreen.storyboard */,
 				1223167E1CF14BD000BBB2F8 /* Localizable.strings */,
 				122316411CF13E8100BBB2F8 /* Main.storyboard */,
+				122316A31CF2012400BBB2F8 /* PrefixHeader.pch */,
 				122316721CF1404D00BBB2F8 /* Services */,
 				122316381CF13E8100BBB2F8 /* Supporting Files */,
 				122316761CF1454300BBB2F8 /* Utils */,
 				122316441CF13E8100BBB2F8 /* VOIQPokedex.xcdatamodeld */,
-				122316A31CF2012400BBB2F8 /* PrefixHeader.pch */,
 			);
 			path = VOIQPokedex;
 			sourceTree = "<group>";

@@ -10,8 +10,6 @@
 
 #import "AppDelegate.h"
 
-#define POKEMON_ENTITY_NAME @"Pokemon"
-
 @implementation PokemonDataAccess
 
 + (id)sharedInstance {
@@ -30,7 +28,7 @@
         
         Pokemon *pokemon = [self loadPokemonWithName:name];
         if (pokemon == nil) {
-            pokemon = [NSEntityDescription insertNewObjectForEntityForName:POKEMON_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
+            pokemon = [NSEntityDescription insertNewObjectForEntityForName:PokemonEntityName inManagedObjectContext:self.managedObjectContext];
             pokemon.name = name;
             pokemon.url = url;
         }
@@ -42,9 +40,8 @@
 }
 
 - (Pokemon *)loadPokemonWithName:(NSString *)name {
-    NSEntityDescription *entity = [NSEntityDescription entityForName:POKEMON_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:PokemonEntityName inManagedObjectContext:self.managedObjectContext];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", name];
-    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     fetchRequest.entity = entity;
     fetchRequest.predicate = predicate;
@@ -65,8 +62,7 @@
 }
 
 - (NSInteger)loadPokemonCount {
-    NSEntityDescription *entity = [NSEntityDescription entityForName:POKEMON_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
-    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:PokemonEntityName inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     fetchRequest.entity = entity;
     
@@ -80,12 +76,13 @@
     return count;
 }
 
-- (void)updatePokemonInfoForName:(NSString *)name withInfo:(NSDictionary *)infoDictionary withCompletionHandler:(SaveListCompletionHandler)completionHandler {
+- (void)updatePokemonInfoForName:(NSString *)name withInfo:(NSDictionary *)infoDictionary andCompletionHandler:(SaveListCompletionHandler)completionHandler {
     Pokemon *pokemon = [self loadPokemonWithName:name];
     if (pokemon != nil) {
-        double gender_rate = [[infoDictionary objectForKey:@"gender_rate"] doubleValue] / 8;
-        pokemon.gender_rate = [NSNumber numberWithDouble:gender_rate];
-        pokemon.pokemon_id = [NSNumber numberWithInteger:[[infoDictionary objectForKey:@"id"] integerValue]];
+        NSNumber *genderRateNumber = [infoDictionary objectForKey:@"gender_rate"];
+        double genderRate = [genderRateNumber doubleValue] / 8;
+        pokemon.gender_rate = [NSNumber numberWithDouble:genderRate];
+        pokemon.pokemon_id = [infoDictionary objectForKey:@"id"];
         pokemon.image = [infoDictionary objectForKey:@"image"];
         
         AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -97,9 +94,8 @@
 
 - (NSFetchedResultsController *)fetchedResultsControllerWithLimit:(NSInteger)fetchLimit {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:POKEMON_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:PokemonEntityName inManagedObjectContext:self.managedObjectContext];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:true];
-
     fetchRequest.entity = entity;
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     fetchRequest.fetchLimit = fetchLimit;

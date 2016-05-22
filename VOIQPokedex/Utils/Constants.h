@@ -10,6 +10,7 @@
 
 @interface Constants : NSObject
 
+extern NSString *const PokemonEntityName;
 extern NSString *const ManagedObjectContextSaveDidFailNotification;
 
 + (NSURL *)applicationDocumentsDirectory;

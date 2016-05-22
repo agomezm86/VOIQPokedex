@@ -55,7 +55,7 @@
         } else {
             PokemonDataAccess *pokemonDataAccess = [PokemonDataAccess sharedInstance];
             pokemonDataAccess.managedObjectContext = self.managedObjectContext;
-            [pokemonDataAccess updatePokemonInfoForName:self.pokemon.name withInfo:infoDictionary withCompletionHandler:^() {
+            [pokemonDataAccess updatePokemonInfoForName:self.pokemon.name withInfo:infoDictionary andCompletionHandler:^() {
                 self.pokemon = [pokemonDataAccess loadPokemonWithName:self.pokemon.name];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (activityIndicatorView != nil) {
