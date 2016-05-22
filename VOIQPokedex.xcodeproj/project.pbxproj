@@ -79,6 +79,7 @@
 		1223169E1CF192F500BBB2F8 /* ActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityIndicatorView.m; path = Utils/ActivityIndicatorView.m; sourceTree = "<group>"; };
 		122316A01CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+InfiniteScroll.h"; path = "Utils/UIScrollView+InfiniteScroll.h"; sourceTree = "<group>"; };
 		122316A11CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+InfiniteScroll.m"; path = "Utils/UIScrollView+InfiniteScroll.m"; sourceTree = "<group>"; };
+		122316A31CF2012400BBB2F8 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +143,7 @@
 				122316381CF13E8100BBB2F8 /* Supporting Files */,
 				122316761CF1454300BBB2F8 /* Utils */,
 				122316441CF13E8100BBB2F8 /* VOIQPokedex.xcdatamodeld */,
+				122316A31CF2012400BBB2F8 /* PrefixHeader.pch */,
 			);
 			path = VOIQPokedex;
 			sourceTree = "<group>";
@@ -504,6 +506,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/VOIQPokedex/PrefixHeader.pch";
 				INFOPLIST_FILE = VOIQPokedex/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -517,6 +521,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/VOIQPokedex/PrefixHeader.pch";
 				INFOPLIST_FILE = VOIQPokedex/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

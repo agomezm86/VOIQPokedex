@@ -19,8 +19,6 @@
 
 @end
 
-#define ManagedObjectContextSaveDidFailNotification @"ManagedObjectContextSaveDidFailNotification"
-
 @implementation AppDelegate
 
 

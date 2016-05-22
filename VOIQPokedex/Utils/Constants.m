@@ -15,6 +15,8 @@
 
 @implementation Constants
 
+NSString *const ManagedObjectContextSaveDidFailNotification = @"ManagedObjectContextSaveDidFailNotification";
+
 + (NSString *)getBaseURL {
     return BASE_URL;
 }

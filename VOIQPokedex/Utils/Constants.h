@@ -10,6 +10,8 @@
 
 @interface Constants : NSObject
 
+extern NSString *const ManagedObjectContextSaveDidFailNotification;
+
 + (NSURL *)getPokemonCountURL;
 + (NSURL *)getListOfAllPokemonURL:(NSInteger)count;
 + (NSURL *)getPokemonDetailedInfoURL:(NSString *)name;

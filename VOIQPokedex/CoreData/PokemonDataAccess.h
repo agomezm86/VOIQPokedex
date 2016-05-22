@@ -6,8 +6,6 @@
 //  Copyright © 2016 Alejandro Gomez Mutis. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
-
 #import "Pokemon.h"
 
 typedef void(^SaveListCompletionHandler)();
