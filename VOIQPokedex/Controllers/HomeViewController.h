@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
-@interface HomeViewController : UIViewController
+#import "CoreDataStack.h"
+
+@interface HomeViewController : UITableViewController<NSFetchedResultsControllerDelegate>
+
+@property (strong, nonatomic) CoreDataStack *coreDataStack;
+
+- (void)performFetch;
 
 @end
