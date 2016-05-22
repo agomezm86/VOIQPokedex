@@ -8,8 +8,6 @@
 
 #import "ServicesManager.h"
 
-#import "AppDelegate.h"
-
 @interface ServicesManager()
 
 @property (strong, nonatomic) NSURLSessionDataTask *dataTask;
@@ -204,8 +202,7 @@
             completionHandler(error);
         } else {
             NSData *data = [NSData dataWithContentsOfURL:location];
-            AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            NSURL *documentsDirectory = [delegate applicationDocumentsDirectory];
+            NSURL *documentsDirectory = [Constants applicationDocumentsDirectory];
             [data writeToURL:[documentsDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", identification]] atomically:true];
             completionHandler(nil);
         }

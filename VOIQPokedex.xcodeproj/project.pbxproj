@@ -25,6 +25,7 @@
 		1223169C1CF1890E00BBB2F8 /* Pokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1223169A1CF1890E00BBB2F8 /* Pokemon.m */; };
 		1223169F1CF192F500BBB2F8 /* ActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1223169E1CF192F500BBB2F8 /* ActivityIndicatorView.m */; };
 		122316A21CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316A11CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.m */; };
+		122316A61CF204EF00BBB2F8 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 122316A51CF204EF00BBB2F8 /* CoreDataStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		122316A01CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+InfiniteScroll.h"; path = "Utils/UIScrollView+InfiniteScroll.h"; sourceTree = "<group>"; };
 		122316A11CF1998900BBB2F8 /* UIScrollView+InfiniteScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+InfiniteScroll.m"; path = "Utils/UIScrollView+InfiniteScroll.m"; sourceTree = "<group>"; };
 		122316A31CF2012400BBB2F8 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		122316A41CF204EF00BBB2F8 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataStack.h; path = CoreData/CoreDataStack.h; sourceTree = "<group>"; };
+		122316A51CF204EF00BBB2F8 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataStack.m; path = CoreData/CoreDataStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +219,8 @@
 				122316981CF1890E00BBB2F8 /* Pokemon+CoreDataProperties.m */,
 				122316841CF155CF00BBB2F8 /* PokemonDataAccess.h */,
 				122316851CF155CF00BBB2F8 /* PokemonDataAccess.m */,
+				122316A41CF204EF00BBB2F8 /* CoreDataStack.h */,
+				122316A51CF204EF00BBB2F8 /* CoreDataStack.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 			files = (
 				1223163D1CF13E8100BBB2F8 /* AppDelegate.m in Sources */,
 				122316751CF1407800BBB2F8 /* ServicesManager.m in Sources */,
+				122316A61CF204EF00BBB2F8 /* CoreDataStack.m in Sources */,
 				122316861CF155CF00BBB2F8 /* PokemonDataAccess.m in Sources */,
 				1223169C1CF1890E00BBB2F8 /* Pokemon.m in Sources */,
 				1223163A1CF13E8100BBB2F8 /* main.m in Sources */,

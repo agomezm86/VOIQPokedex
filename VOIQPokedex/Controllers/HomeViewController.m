@@ -40,10 +40,13 @@
     if (self.fetchLimit == 0) {
         self.fetchLimit = 20;
     }
+    
     PokemonDataAccess *pokemonDataAccess = [PokemonDataAccess sharedInstance];
     pokemonDataAccess.managedObjectContext = self.managedObjectContext;
     self.fetchedResultsController = [pokemonDataAccess fetchedResultsControllerWithLimit:self.fetchLimit];
-    self.fetchedResultsController.delegate = self;
+    if (self.fetchedResultsController.sections.count > 0) {
+        self.fetchedResultsController.delegate = self;
+    }
     
     NSError *error;
     [self.fetchedResultsController performFetch:&error];
@@ -51,6 +54,8 @@
         AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [delegate fatalCoreDataError:error];
     }
+    
+    [self.tableView reloadData];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue

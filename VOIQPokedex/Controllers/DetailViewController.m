@@ -37,8 +37,7 @@
     
     ActivityIndicatorView *activityIndicatorView = nil;
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSURL *documentsDirectory = [delegate applicationDocumentsDirectory];
+    NSURL *documentsDirectory = [Constants applicationDocumentsDirectory];
     NSURL *imageURL = [documentsDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", self.pokemon.pokemon_id]];
     if ([[NSFileManager defaultManager] fileExistsAtPath:[imageURL path]]) {
         [self reloadView];
@@ -82,8 +81,7 @@
     self.genderTitleLabel.hidden = false;
     self.genderLabel.hidden = false;
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSURL *documentsDirectory = [delegate applicationDocumentsDirectory];
+    NSURL *documentsDirectory = [Constants applicationDocumentsDirectory];
     NSURL *imageURL = [documentsDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", self.pokemon.pokemon_id]];
     self.imageView.image = [UIImage imageWithContentsOfFile:[imageURL path]];
     

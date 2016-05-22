@@ -12,6 +12,8 @@
 
 extern NSString *const ManagedObjectContextSaveDidFailNotification;
 
++ (NSURL *)applicationDocumentsDirectory;
+
 + (NSURL *)getPokemonCountURL;
 + (NSURL *)getListOfAllPokemonURL:(NSInteger)count;
 + (NSURL *)getPokemonDetailedInfoURL:(NSString *)name;

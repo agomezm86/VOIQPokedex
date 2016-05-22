@@ -37,7 +37,7 @@
     }
     
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate saveContext];
+    [delegate.coreDataStack saveContext];
     completionHandler();
 }
 
@@ -89,7 +89,7 @@
         pokemon.image = [infoDictionary objectForKey:@"image"];
         
         AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        [delegate saveContext];
+        [delegate.coreDataStack saveContext];
     }
     
     completionHandler();
